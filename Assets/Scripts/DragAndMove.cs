@@ -53,7 +53,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         virtualObject = Instantiate(Objectpivot, Objectpivot.transform);
         Destroy(virtualObject.GetComponentInChildren<DragAndMove>());
         Destroy(virtualObject.GetComponentInChildren<LineRenderer>());
-        Destroy(virtualObject.GetComponentInChildren<MeshCollider>());
+        //Destroy(virtualObject.GetComponentInChildren<MeshCollider>());
         virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = true;
         virtualObjectOriginMat = gameManager.greenMaterial;
         virtualObject.transform.GetChild(0).gameObject.tag = "Untagged";
@@ -216,7 +216,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
             {
                 float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
                 currentStackHeight = rayHeight;
-                //Debug.Log(currentStackHeight);
+                Debug.Log(currentStackHeight);
             } 
         }
     }

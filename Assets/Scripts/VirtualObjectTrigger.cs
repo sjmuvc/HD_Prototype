@@ -12,7 +12,7 @@ public class VirtualObjectTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Wall"))
         {
             dragAndMove.isInsideTheWall = false;
-            Debug.Log("Stay");
+            //Debug.Log("Stay");
         }
     }
 
@@ -21,7 +21,7 @@ public class VirtualObjectTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Wall"))
         {
             dragAndMove.isInsideTheWall = true;
-            Debug.Log("Exit");
+            //Debug.Log("Exit");
         }
     }
 }
