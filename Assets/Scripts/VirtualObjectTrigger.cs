@@ -11,8 +11,7 @@ public class VirtualObjectTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            dragAndMove.isEnableStack = false;
-            Debug.Log("´êÀ½");
+            dragAndMove.isInsideTheWall = false;
         }
     }
 
@@ -20,8 +19,7 @@ public class VirtualObjectTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            dragAndMove.isEnableStack = true;
-            Debug.Log("¶³¾îÁü");
+            dragAndMove.isInsideTheWall = true;
         }
     }
 }

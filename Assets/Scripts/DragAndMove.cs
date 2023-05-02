@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -25,7 +24,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     bool isOnVirtualPlane = false;
     float rotateValue = 10;
     float currentStackHeight;
-    public bool isEnableStack = true;
+    public bool isInsideTheWall = true;
     float lineWidth = .05f;
     float time;
     float simulationTime;
@@ -54,10 +53,12 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         virtualObject = Instantiate(Objectpivot, Objectpivot.transform);
         Destroy(virtualObject.GetComponentInChildren<DragAndMove>());
         Destroy(virtualObject.GetComponentInChildren<LineRenderer>());
-        Destroy(virtualObject.GetComponentInChildren<MeshCollider>());
-        Destroy(virtualObject.GetComponentInChildren<Rigidbody>());
+        virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>().convex = false;
+        virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = true;
         virtualObjectOriginMat = gameManager.greenMaterial;
         virtualObject.transform.GetChild(0).gameObject.tag = "Untagged";
+        virtualObject.transform.GetChild(0).gameObject.AddComponent<VirtualObjectTrigger>();
+        virtualObject.transform.GetChild(0).gameObject.GetComponent<VirtualObjectTrigger>().dragAndMove = this.GetComponent<DragAndMove>();
         virtualObject.SetActive(false);
     }
 
@@ -126,7 +127,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         virtualObject.SetActive(false);
         gameManager.virtualPlaneMeshRenderer.enabled = true;
 
-        if (isOnVirtualPlane && isEnableStack && gameManager.virtualPlaneHeight > currentStackHeight + objectHeight)
+        if (isOnVirtualPlane && isInsideTheWall && gameManager.virtualPlaneHeight > currentStackHeight + objectHeight)
         {
             Objectpivot.transform.position = new Vector3(Objectpivot.transform.position.x, currentStackHeight + objectHeight / 2, Objectpivot.transform.position.z);
             rigidBody.isKinematic = false;
@@ -195,7 +196,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         #endregion
 
         // 내려놓을 수 없다면 색 변경
-        if (isEnableStack == false || gameManager.virtualPlaneHeight < currentStackHeight + objectHeight)
+        if (isInsideTheWall == false || gameManager.virtualPlaneHeight < currentStackHeight + objectHeight)
         {
             virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = gameManager.redMaterial;
         }
@@ -208,15 +209,15 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     void DetectStackHeight()
     {
         RaycastHit sweepTestHit;
-
-        if (rigidBody.SweepTest(-Objectpivot.transform.up, out sweepTestHit, gameManager.virtualPlaneHeight + 5))
+        
+        if (rigidBody.SweepTest(-Objectpivot.transform.up, out sweepTestHit, gameManager.virtualPlaneHeight + 50))
         {
             if (sweepTestHit.collider.tag == "StackObject")
             {
                 float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
                 currentStackHeight = rayHeight;
-                Debug.Log(sweepTestHit.distance);
-            }
+                Debug.Log(currentStackHeight);
+            } 
         }
     }
 
@@ -264,28 +265,13 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         {
             if (virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>() != null || virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>() != null)
             {
-                Destroy(virtualObject.GetComponentInChildren<Rigidbody>());
-                Destroy(virtualObject.GetComponentInChildren<MeshCollider>());
+                virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
             gameManager.AllFreeze(active);
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("Wall"))
-        {
-            isEnableStack = false;
-        }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Wall"))
-        {
-            isEnableStack = true;
-        }
-    }
 
 
 }
