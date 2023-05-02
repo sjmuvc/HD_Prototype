@@ -53,6 +53,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         virtualObject = Instantiate(Objectpivot, Objectpivot.transform);
         Destroy(virtualObject.GetComponentInChildren<DragAndMove>());
         Destroy(virtualObject.GetComponentInChildren<LineRenderer>());
+        //Destroy(virtualObject.GetComponentInChildren<MeshCollider>());
         virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>().convex = true;
         virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().useGravity = true;
         virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -210,29 +211,27 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     void DetectStackHeight()
     {
         RaycastHit sweepTestHit;
-        /*
+        
         if (rigidBody.SweepTest(-Objectpivot.transform.up, out sweepTestHit, gameManager.virtualPlaneHeight + 50))
         {
             if (sweepTestHit.collider.tag == "StackObject")
             {
                 float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
                 currentStackHeight = rayHeight;
-                Debug.Log(currentStackHeight);
-            } 
-        }
-        */
-        Ray ray = new Ray(Objectpivot.transform.position, -Objectpivot.transform.up);
-        Debug.DrawRay(ray.origin, ray.direction * mouseRayDistance, Color.green);
-        if (Physics.Raycast(ray, out sweepTestHit, Mathf.Infinity))
-        {
-            if (sweepTestHit.collider.tag == "StackObject")
-            {
-                float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
-                currentStackHeight = rayHeight;
-                Debug.Log(currentStackHeight);
+                Debug.Log("태그 인식");
             }
         }
-        
+        /*
+        Ray ray = new Ray(Objectpivot.transform.position, -Objectpivot.transform.up);
+        int layerMask = 1 << LayerMask.NameToLayer("StackObject");
+        Debug.DrawRay(ray.origin, ray.direction * mouseRayDistance, Color.green);
+        if (Physics.Raycast(ray, out sweepTestHit, Mathf.Infinity, layerMask))
+        {
+            float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
+            currentStackHeight = rayHeight;
+            Debug.Log(currentStackHeight);
+        }
+        */
     }
 
     public void GotoObjectZone()
