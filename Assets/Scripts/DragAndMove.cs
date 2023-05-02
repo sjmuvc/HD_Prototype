@@ -210,7 +210,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     void DetectStackHeight()
     {
         RaycastHit sweepTestHit;
-        
+        /*
         if (rigidBody.SweepTest(-Objectpivot.transform.up, out sweepTestHit, gameManager.virtualPlaneHeight + 50))
         {
             if (sweepTestHit.collider.tag == "StackObject")
@@ -220,16 +220,19 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
                 Debug.Log(currentStackHeight);
             } 
         }
-        
-        /*
-        int layerMask = 1 << LayerMask.NameToLayer("StackObject");
-        if (Physics.Raycast(transform.position, transform.forward, out sweepTestHit, Mathf.Infinity, layerMask))
-        {
-            float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
-            currentStackHeight = rayHeight;
-            Debug.Log(currentStackHeight);
-        }
         */
+        Ray ray = new Ray(Objectpivot.transform.position, -Objectpivot.transform.up);
+        Debug.DrawRay(ray.origin, ray.direction * mouseRayDistance, Color.green);
+        if (Physics.Raycast(ray, out sweepTestHit, Mathf.Infinity))
+        {
+            if (sweepTestHit.collider.tag == "StackObject")
+            {
+                float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
+                currentStackHeight = rayHeight;
+                Debug.Log(currentStackHeight);
+            }
+        }
+        
     }
 
     public void GotoObjectZone()
