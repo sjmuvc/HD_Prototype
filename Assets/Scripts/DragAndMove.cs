@@ -53,7 +53,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         virtualObject = Instantiate(Objectpivot, Objectpivot.transform);
         Destroy(virtualObject.GetComponentInChildren<DragAndMove>());
         Destroy(virtualObject.GetComponentInChildren<LineRenderer>());
-        virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>().convex = false;
+        Destroy(virtualObject.GetComponentInChildren<MeshCollider>());
         virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = true;
         virtualObjectOriginMat = gameManager.greenMaterial;
         virtualObject.transform.GetChild(0).gameObject.tag = "Untagged";
@@ -216,7 +216,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
             {
                 float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
                 currentStackHeight = rayHeight;
-                Debug.Log(currentStackHeight);
+                //Debug.Log(currentStackHeight);
             } 
         }
     }
@@ -251,20 +251,27 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     {
         if (active)
         {
-            if (virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>() == null && virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>() == null)
+            if (virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>() == null)
             {
                 virtualObject.transform.GetChild(0).gameObject.AddComponent<Rigidbody>();
+            }
+            if (virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>() == null)
+            {
                 virtualObject.transform.GetChild(0).gameObject.AddComponent<MeshCollider>();
             }
-            virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>().convex = true;
-            virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().useGravity = true;
-            virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            if(virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>() != null && virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>() != null)
+            {
+                virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>().convex = true;
+                virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().useGravity = true;
+                virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            }
             gameManager.AllFreeze(active);
         }
         else
         {
             if (virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>() != null || virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>() != null)
             {
+                //Destroy(virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>());
                 virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
             gameManager.AllFreeze(active);

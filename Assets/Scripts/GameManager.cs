@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
                 stackObjects[stackNum - 1].GetComponent<DragAndMove>().GotoObjectZone();
                 stackObjects.RemoveAt(stackNum - 1);
                 stackNum--;
-                Debug.Log(stackNum);
             }
         }
 
