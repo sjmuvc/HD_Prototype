@@ -4459,6 +4459,7 @@ GameObject:
   - component: {fileID: 3469287836644176033}
   - component: {fileID: 1711813856072991851}
   - component: {fileID: 1047533810}
+  - component: {fileID: 3469287836644176034}
   m_Layer: 0
   m_Name: ULD_Plane
   m_TagString: StackObject
@@ -4775,6 +4776,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148995007934}
   m_Mesh: {fileID: -1393281163073059472, guid: b7e8dacf75ed8bb4ba892f45534ad884, type: 3}
+--- !u!54 &3469287836644176034
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148995007934}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3523747318138452871
 GameObject:
   m_ObjectHideFlags: 0
