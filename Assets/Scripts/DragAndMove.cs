@@ -95,7 +95,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         Objectpivot.transform.position = worldMousePos;
         gameManager.AllFreeze(true);
         RayPositioning();
-        gameManager.dragText.text = Objectpivot.transform.position.ToString();
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             Objectpivot.transform.localEulerAngles = new Vector3(Objectpivot.transform.localEulerAngles.x, Objectpivot.transform.localEulerAngles.y + rotateValue, Objectpivot.transform.localEulerAngles.z);
