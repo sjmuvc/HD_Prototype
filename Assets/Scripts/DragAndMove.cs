@@ -19,6 +19,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     LineRenderer lineRenderer;
     Material virtualObjectOriginMat;
     MeshCollider meshCollider;
+    RaycastHit sweepTestHitSelected;
 
     float cameraToObjectDistance = 20;
     float mouseRayDistance = 1000;
@@ -210,15 +211,18 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         RaycastHit[] sweepTestHitAll;
 
         sweepTestHitAll = rigidBody.SweepTestAll(-Objectpivot.transform.up, gameManager.virtualPlaneHeight + 5, QueryTriggerInteraction.Ignore);
-
-        foreach (RaycastHit sweepTestHit in sweepTestHitAll.Reverse())
+        
+        foreach (RaycastHit sweepTestHit in sweepTestHitAll)
         {
             if (sweepTestHit.collider.tag == "StackObject")
             {
-                float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
+                if (sweepTestHitSelected.distance > sweepTestHit.distance || sweepTestHitSelected.collider == null)
+                {
+                    sweepTestHitSelected = sweepTestHit;
+                }
+                float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHitSelected.distance);
                 currentStackHeight = rayHeight;
-                Debug.Log(sweepTestHit.collider.name);
-                break;
+                Debug.Log(sweepTestHitSelected.collider.name);
             }
         }
     }
