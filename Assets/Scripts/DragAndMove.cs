@@ -211,12 +211,13 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         RaycastHit[] sweepTestHitAll;
 
         sweepTestHitAll = rigidBody.SweepTestAll(-Objectpivot.transform.up, gameManager.virtualPlaneHeight + 5, QueryTriggerInteraction.Ignore);
-        
+        RaycastHit sweepTestHitSelected = sweepTestHitAll[0];
+
         foreach (RaycastHit sweepTestHit in sweepTestHitAll)
         {
             if (sweepTestHit.collider.tag == "StackObject")
             {
-                if (sweepTestHitSelected.distance > sweepTestHit.distance || sweepTestHitSelected.collider == null)
+                if (sweepTestHitSelected.distance > sweepTestHit.distance || sweepTestHitSelected.collider.tag != "StackObject")
                 {
                     sweepTestHitSelected = sweepTestHit;
                 }
