@@ -7,8 +7,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
 {
     GameManager gameManager;
     RaycastHit hitLayerMask;
-    RaycastHit hitStackHeight;
-    Vector3 thisPos, uldPos;
+    Vector3 thisPos;
     GameObject virtualObject;
     float objectHeight;
     Vector3 pivot;
@@ -19,7 +18,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     LineRenderer lineRenderer;
     Material virtualObjectOriginMat;
     MeshCollider meshCollider;
-    RaycastHit sweepTestHitSelected;
 
     float cameraToObjectDistance = 20;
     float mouseRayDistance = 1000;
@@ -223,7 +221,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
                 }
                 float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHitSelected.distance);
                 currentStackHeight = rayHeight;
-                Debug.Log(sweepTestHitSelected.collider.name);
             }
         }
     }
