@@ -210,9 +210,22 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
 
     void DetectStackHeight()
     {
-        RaycastHit sweepTestHit;
-        
-        if (rigidBody.SweepTest(-Objectpivot.transform.up, out sweepTestHit, gameManager.virtualPlaneHeight + 50))
+        RaycastHit[] sweepTestHitAll;
+
+        sweepTestHitAll = rigidBody.SweepTestAll(-Objectpivot.transform.up, gameManager.virtualPlaneHeight + 5, QueryTriggerInteraction.Ignore);
+
+        foreach (RaycastHit sweepTestHit in sweepTestHitAll)
+        {
+            if(sweepTestHit.collider.tag == "StackObject")
+            {
+                float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
+                currentStackHeight = rayHeight;
+                Debug.Log("태그 인식");
+            }
+        }
+
+        /*
+        if (rigidBody.SweepTest(-Objectpivot.transform.up, out sweepTestHit, gameManager.virtualPlaneHeight + 5))
         {
             if (sweepTestHit.collider.tag == "StackObject")
             {
@@ -220,16 +233,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
                 currentStackHeight = rayHeight;
                 Debug.Log("태그 인식");
             }
-        }
-        /*
-        Ray ray = new Ray(Objectpivot.transform.position, -Objectpivot.transform.up);
-        int layerMask = 1 << LayerMask.NameToLayer("StackObject");
-        Debug.DrawRay(ray.origin, ray.direction * mouseRayDistance, Color.green);
-        if (Physics.Raycast(ray, out sweepTestHit, Mathf.Infinity, layerMask))
-        {
-            float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
-            currentStackHeight = rayHeight;
-            Debug.Log(currentStackHeight);
         }
         */
     }
