@@ -55,7 +55,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         virtualObject = Instantiate(Objectpivot, Objectpivot.transform);
         Destroy(virtualObject.GetComponentInChildren<DragAndMove>());
         Destroy(virtualObject.GetComponentInChildren<LineRenderer>());
-        //Destroy(virtualObject.GetComponentInChildren<MeshCollider>());
         virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>().convex = true;
         virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().useGravity = true;
         virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -270,16 +269,13 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     {
         if (active)
         {
-            if(virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>() != null)
-            {
-                virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            }
-            isSimulationOn = true;
+            virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            isSimulationOn = active;
         }
         else
         {
             virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            isSimulationOn = false;
+            isSimulationOn = active;
         }
     }
 
