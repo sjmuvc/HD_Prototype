@@ -93,7 +93,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         Vector3 mousePos = Input.mousePosition;
         Vector3 worldMousePos = gameManager.cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cameraToObjectDistance)); // 카메라로부터 거리값
         Objectpivot.transform.position = worldMousePos;
-        //gameManager.AllFreeze(true);
+        gameManager.AllFreeze(true);
         RayPositioning();
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -286,7 +286,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         else
         {
             virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            gameManager.AllFreeze(active);
         }
     }
 
