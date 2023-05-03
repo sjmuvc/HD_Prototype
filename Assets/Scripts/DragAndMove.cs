@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -92,7 +93,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         Vector3 mousePos = Input.mousePosition;
         Vector3 worldMousePos = gameManager.cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cameraToObjectDistance)); // 카메라로부터 거리값
         Objectpivot.transform.position = worldMousePos;
-
+        //gameManager.AllFreeze(true);
         RayPositioning();
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -111,9 +112,9 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         {
             isOnVirtualPlane = true;
             Objectpivot.transform.position = new Vector3(hitLayerMask.point.x, gameManager.virtualPlaneHeight + (objectHeight / 2) - 0.00001f, hitLayerMask.point.z); // 객체의 위치를 RaycastHit의 point값 위치로 이동
-
-            DrawVirtualObject(isOnVirtualPlane);
+            
             DetectStackHeight();
+            DrawVirtualObject(isOnVirtualPlane);
             gameManager.virtualPlaneMeshRenderer.enabled = false;
         }
         else
@@ -214,13 +215,14 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
 
         sweepTestHitAll = rigidBody.SweepTestAll(-Objectpivot.transform.up, gameManager.virtualPlaneHeight + 5, QueryTriggerInteraction.Ignore);
 
-        foreach (RaycastHit sweepTestHit in sweepTestHitAll)
+        foreach (RaycastHit sweepTestHit in sweepTestHitAll.Reverse())
         {
             if(sweepTestHit.collider.tag == "StackObject")
             {
                 float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
                 currentStackHeight = rayHeight;
-                Debug.Log("태그 인식");
+                Debug.Log(sweepTestHit.collider.name);
+                break;
             }
         }
 
