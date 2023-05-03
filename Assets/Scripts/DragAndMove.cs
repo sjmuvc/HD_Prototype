@@ -33,6 +33,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     float replayTimeToSimulation = 2.5f;
     bool isSimulationOn;
     bool isEnableStack;
+    float virtualObjectDownSpeed = 1;
 
 
     private void Start()
@@ -131,6 +132,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
 
         if (isOnVirtualPlane && isEnableStack)
         {
+            //Objectpivot.transform.position = Vector3.MoveTowards(Objectpivot.transform.position, new Vector3(Objectpivot.transform.position.x, currentStackHeight + objectHeight / 2, Objectpivot.transform.position.z), virtualObjectDownSpeed);
             Objectpivot.transform.position = new Vector3(Objectpivot.transform.position.x, currentStackHeight + objectHeight / 2, Objectpivot.transform.position.z);
             rigidBody.isKinematic = false;
             Objectpivot.transform.parent = gameManager.uld.transform.Find("Objects").gameObject.transform;

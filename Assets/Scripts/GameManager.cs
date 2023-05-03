@@ -35,11 +35,6 @@ public class GameManager : MonoBehaviour
         uldHeight = uld_Plane.transform.position.y;  
     }
 
-    private void Start()
-    {
-        //cam.transform.LookAt(uld.transform);
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
