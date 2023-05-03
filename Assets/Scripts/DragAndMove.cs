@@ -144,10 +144,8 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
             GotoObjectZone();
         }
 
-        // 시뮬레이션 종료
-        isSimulationOn = false;
-        Simulation(isSimulationOn);
-        gameManager.AllFreeze(isSimulationOn);
+        Simulation(false);
+        gameManager.AllFreeze(false);
     }
 
     private void OnMouseDown()
@@ -180,8 +178,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
 
         if (time > delayTimeToSimulation && currentPos == lastPos) // 1초 이상 움직임 없으면 시뮬레이션 시작
         {
-            isSimulationOn = true;
-            Simulation(isSimulationOn);
+            Simulation(true);
 
             simulationTime += Time.deltaTime;
             if (simulationTime > replayTimeToSimulation)
@@ -191,8 +188,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         }
         else if (currentPos != lastPos) // 움직이면 시뮬레이션 종료
         {
-            isSimulationOn = false;
-            Simulation(isSimulationOn);
+            Simulation(false);
 
             time = 0;
             SettingVirtualObjectTransform(thisPos);
@@ -229,15 +225,18 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     }
     void EnableStack(bool enable)
     {
-        if (enable)
+        if (!isSimulationOn)
         {
-            virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = virtualObjectOriginMat;
-            isEnableStack = true;
-        }
-        else
-        {
-            virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = gameManager.redMaterial;
-            isEnableStack = false;
+            if (enable)
+            {
+                virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = virtualObjectOriginMat;
+                isEnableStack = true;
+            }
+            else
+            {
+                virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = gameManager.redMaterial;
+                isEnableStack = false;
+            }
         }
     }
 
@@ -275,11 +274,12 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
             {
                 virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = false;
             }
-            gameManager.AllFreeze(active);
+            isSimulationOn = true;
         }
         else
         {
             virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            isSimulationOn = false;
         }
     }
 
