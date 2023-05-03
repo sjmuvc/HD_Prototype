@@ -112,8 +112,9 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
             isOnVirtualPlane = true;
             Objectpivot.transform.position = new Vector3(hitLayerMask.point.x, gameManager.virtualPlaneHeight + (objectHeight / 2) - 0.00001f, hitLayerMask.point.z); // 객체의 위치를 RaycastHit의 point값 위치로 이동
 
-            DrawVirtualObject(isOnVirtualPlane);
             DetectStackHeight();
+            DrawVirtualObject(isOnVirtualPlane);
+
             gameManager.virtualPlaneMeshRenderer.enabled = false;
         }
         else
