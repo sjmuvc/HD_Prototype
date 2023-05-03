@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Material greenMaterial;
     public Material lineMaterial;
     Vector3 rotatePivot;
+    public Text dragText;
 
     public List<GameObject> stackObjects = new List<GameObject>();
     public int stackNum;
