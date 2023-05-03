@@ -33,6 +33,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     float delayTimeToSimulation = 0.5f;
     float replayTimeToSimulation = 2.5f;
     bool isSimulationOn;
+    bool isEnableStack;
 
 
     private void Start()
@@ -130,7 +131,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         virtualObject.SetActive(false);
         gameManager.virtualPlaneMeshRenderer.enabled = true;
 
-        if (isOnVirtualPlane && isInsideTheWall && gameManager.virtualPlaneHeight > currentStackHeight + objectHeight)
+        if (isOnVirtualPlane && isEnableStack)
         {
             Objectpivot.transform.position = new Vector3(Objectpivot.transform.position.x, currentStackHeight + objectHeight / 2, Objectpivot.transform.position.z);
             rigidBody.isKinematic = false;
@@ -198,14 +199,14 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         }
         #endregion
 
-        // 내려놓을 수 없다면 색 변경
-        if (isInsideTheWall == false || gameManager.virtualPlaneHeight < currentStackHeight + objectHeight)
+        // 벽 안쪽이어야만 내려놓을 수 있음
+        if (isInsideTheWall == true && gameManager.virtualPlaneHeight > currentStackHeight + objectHeight)
         {
-            virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = gameManager.redMaterial;
+            EnableStack(true);
         }
         else
         {
-            virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = virtualObjectOriginMat;
+            EnableStack(false);
         }
     }
 
@@ -217,7 +218,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
 
         foreach (RaycastHit sweepTestHit in sweepTestHitAll.Reverse())
         {
-            if(sweepTestHit.collider.tag == "StackObject")
+            if (sweepTestHit.collider.tag == "StackObject")
             {
                 float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
                 currentStackHeight = rayHeight;
@@ -225,18 +226,19 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
                 break;
             }
         }
-
-        /*
-        if (rigidBody.SweepTest(-Objectpivot.transform.up, out sweepTestHit, gameManager.virtualPlaneHeight + 5))
+    }
+    void EnableStack(bool enable)
+    {
+        if (enable)
         {
-            if (sweepTestHit.collider.tag == "StackObject")
-            {
-                float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHit.distance);
-                currentStackHeight = rayHeight;
-                Debug.Log("태그 인식");
-            }
+            virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = virtualObjectOriginMat;
+            isEnableStack = true;
         }
-        */
+        else
+        {
+            virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = gameManager.redMaterial;
+            isEnableStack = false;
+        }
     }
 
     public void GotoObjectZone()
@@ -269,14 +271,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     {
         if (active)
         {
-            if (virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>() == null)
-            {
-                virtualObject.transform.GetChild(0).gameObject.AddComponent<Rigidbody>();
-            }
-            if (virtualObject.transform.GetChild(0).gameObject.GetComponent<MeshCollider>() == null)
-            {
-                virtualObject.transform.GetChild(0).gameObject.AddComponent<MeshCollider>();
-            }
             if(virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>() != null)
             {
                 virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = false;
