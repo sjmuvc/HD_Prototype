@@ -174,7 +174,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         else
         {
             virtualObject.SetActive(active);
-            GotoULD(virtualObject);
         }
 
         #region 시뮬레이션 기능
@@ -266,11 +265,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         SettingObjectTransform();
         Objectpivot.transform.position = startPosition;
         Objectpivot.transform.parent = gameManager.objectZone.transform.Find("Objects").gameObject.transform;
-    }
-
-    public void GotoULD(GameObject objectToMove)
-    {
-        objectToMove.transform.position = gameManager.uld_Plane.transform.position;
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
