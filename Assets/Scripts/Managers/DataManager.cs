@@ -15,4 +15,13 @@ public class DataManager : MonoBehaviour
     {
         
     }
+
+    public void Excel()
+    {
+        List<string> strings = new List<string>();
+
+        Cacher.cargoManager.GenerateCargo(strings);
+
+
+    }
 }

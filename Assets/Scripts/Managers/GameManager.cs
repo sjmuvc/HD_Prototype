@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> stackObjects = new List<GameObject>();
     public int stackNum;
     List<Vector3> originTransformForSimulation = new List<Vector3>();
-
+    
     void Awake()
     {
         cam = Camera.main;
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         {
             if (stackNum - 1 >= 0) 
             {
-                stackObjects[stackNum - 1].GetComponent<DragAndMove>().GotoObjectZone();
+                stackObjects[stackNum - 1].GetComponent<CargoManager>().GotoObjectZone();
                 stackObjects.RemoveAt(stackNum - 1);
                 stackNum--;
             }
