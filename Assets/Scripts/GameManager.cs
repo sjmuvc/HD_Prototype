@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public Material lineMaterial;
     public GameObject dragObject;
     public Text dragText;
+    float maxCargoCount = 100;
 
     public List<GameObject> stackObjects = new List<GameObject>();
     public int stackNum;

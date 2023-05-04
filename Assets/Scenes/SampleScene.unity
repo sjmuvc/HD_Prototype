@@ -3612,6 +3612,7 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: 97d40659067b8d145a9adcba0a69a0ba, type: 2}
   greenMaterial: {fileID: 2100000, guid: 5d3ea9c55ee1b94438c797a180899b69, type: 2}
   lineMaterial: {fileID: 2100000, guid: d8ac491a31023b343ab5dab23b0c93ae, type: 2}
+  dragObject: {fileID: 0}
   dragText: {fileID: 1001270124}
   stackObjects: []
   stackNum: 0
