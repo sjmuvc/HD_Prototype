@@ -7,7 +7,7 @@ public class VirtualObjectTrigger : MonoBehaviour
 {
     public DragAndMove dragAndMove;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Wall"))
         {

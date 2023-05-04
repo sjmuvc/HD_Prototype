@@ -138,7 +138,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         {
             Objectpivot.transform.position = new Vector3(Objectpivot.transform.position.x, currentStackHeight + objectHeight / 2, Objectpivot.transform.position.z);
             rigidBody.isKinematic = false;
-            Objectpivot.transform.parent = gameManager.uld.transform.Find("Objects").gameObject.transform;
             gameManager.stackObjects.Add(this.gameObject);
             gameManager.stackNum++;
         }
@@ -152,6 +151,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
 
     private void OnMouseDown()
     {
+        Objectpivot.transform.parent = gameManager.uld.transform.Find("Objects").gameObject.transform;
         gameManager.dragObject = Objectpivot;
         SettingObjectTransform();
         rigidBody.isKinematic = true;
@@ -214,6 +214,11 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         RaycastHit[] sweepTestHitAll;
 
         sweepTestHitAll = rigidBody.SweepTestAll(-Objectpivot.transform.up, gameManager.virtualPlaneHeight + 5, QueryTriggerInteraction.Ignore);
+        if (sweepTestHitAll.Length == 0)
+        {
+            return;
+        }
+
         RaycastHit sweepTestHitSelected = sweepTestHitAll[0];
 
         foreach (RaycastHit sweepTestHit in sweepTestHitAll)
