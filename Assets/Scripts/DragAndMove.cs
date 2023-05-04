@@ -50,6 +50,8 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         this.transform.parent = Objectpivot.transform;
         settingPivotPosition = this.transform.localPosition;
         settingPivotRotation = this.transform.localEulerAngles;
+        Objectpivot.name = this.gameObject.name;
+        GotoObjectZone();
 
         // 피봇 위치를 맞춘 가상 오브젝트 생성하고 false
         virtualObject = Instantiate(Objectpivot, Objectpivot.transform);
@@ -97,7 +99,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         Vector3 worldMousePos = gameManager.cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cameraToObjectDistance)); // 카메라로부터 거리값
         Objectpivot.transform.position = worldMousePos;
         gameManager.AllFreeze(true);
-        RayPositioning();
+        RayPositioning(worldMousePos);
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -105,7 +107,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    void RayPositioning()
+    void RayPositioning(Vector3 worldMousePos)
     {
         Ray ray = gameManager.cam.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * mouseRayDistance, Color.red);
@@ -164,8 +166,16 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         lineRenderer.SetPosition(1, new Vector3(thisPos.x, currentStackHeight + objectHeight / 2, thisPos.z)); // 내려갈 위치 stackHeight
         lineRenderer.enabled = active;
 
-        virtualObject.SetActive(active);
-        virtualObject.transform.position = new Vector3(thisPos.x, currentStackHeight + objectHeight / 2, thisPos.z);
+        if (active)
+        {
+            virtualObject.SetActive(active);
+            virtualObject.transform.position = new Vector3(thisPos.x, currentStackHeight + objectHeight / 2, thisPos.z);
+        }
+        else
+        {
+            virtualObject.SetActive(active);
+            GotoULD(virtualObject);
+        }
 
         #region 시뮬레이션 기능
         currentPos = Objectpivot.transform.position; // currentPos 계속 업데이트
@@ -256,6 +266,11 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         SettingObjectTransform();
         Objectpivot.transform.position = startPosition;
         Objectpivot.transform.parent = gameManager.objectZone.transform.Find("Objects").gameObject.transform;
+    }
+
+    public void GotoULD(GameObject objectToMove)
+    {
+        objectToMove.transform.position = gameManager.uld_Plane.transform.position;
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
