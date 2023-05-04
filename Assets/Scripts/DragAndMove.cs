@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -33,7 +32,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     float replayTimeToSimulation = 2.5f;
     bool isSimulationOn;
     bool isEnableStack;
-    float virtualObjectDownSpeed = 1;
 
 
     private void Start()
@@ -68,7 +66,10 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     void AddComponenet()
     {
         // Mesh Collider 생성
-        this.gameObject.AddComponent<MeshCollider>();
+        if (this.gameObject.GetComponent<MeshCollider>() == null )
+        {
+            this.gameObject.AddComponent<MeshCollider>();
+        }
         meshCollider = this.GetComponent<MeshCollider>();
         meshCollider.convex = true;
         objectHeight = meshCollider.bounds.size.y; // extents로 할 경우 x,y,z축과 상관없는 오브젝트의 높이, 하지만 높이가 안맞음
@@ -132,7 +133,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
 
         if (isOnVirtualPlane && isEnableStack)
         {
-            //Objectpivot.transform.position = Vector3.MoveTowards(Objectpivot.transform.position, new Vector3(Objectpivot.transform.position.x, currentStackHeight + objectHeight / 2, Objectpivot.transform.position.z), virtualObjectDownSpeed);
             Objectpivot.transform.position = new Vector3(Objectpivot.transform.position.x, currentStackHeight + objectHeight / 2, Objectpivot.transform.position.z);
             rigidBody.isKinematic = false;
             Objectpivot.transform.parent = gameManager.uld.transform.Find("Objects").gameObject.transform;
@@ -143,7 +143,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         {
             GotoObjectZone();
         }
-
         Simulation(false);
         gameManager.AllFreeze(false);
     }
