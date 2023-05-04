@@ -127,6 +127,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     }
     private void OnMouseUp()
     {
+        gameManager.dragObject = null;
         lineRenderer.enabled = false;
         virtualObject.SetActive(false);
         gameManager.virtualPlaneMeshRenderer.enabled = true;
@@ -149,6 +150,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
 
     private void OnMouseDown()
     {
+        gameManager.dragObject = Objectpivot;
         SettingObjectTransform();
         rigidBody.isKinematic = true;
     }

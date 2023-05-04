@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public Material redMaterial;
     public Material greenMaterial;
     public Material lineMaterial;
+    public GameObject dragObject;
     Vector3 rotatePivot;
     public Text dragText;
 
@@ -52,11 +53,19 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             uld.transform.localEulerAngles = new Vector3(uld.transform.localEulerAngles.x, uld.transform.localEulerAngles.y + 10, uld.transform.localEulerAngles.z);
+            if (dragObject != null)
+            {
+                dragObject.transform.localEulerAngles = new Vector3(dragObject.transform.localEulerAngles.x, dragObject.transform.localEulerAngles.y + 10, dragObject.transform.localEulerAngles.z);
+            }   
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             uld.transform.localEulerAngles = new Vector3(uld.transform.localEulerAngles.x, uld.transform.localEulerAngles.y - 10, uld.transform.localEulerAngles.z);
+            if (dragObject != null)
+            {
+                dragObject.transform.localEulerAngles = new Vector3(dragObject.transform.localEulerAngles.x, dragObject.transform.localEulerAngles.y - 10, dragObject.transform.localEulerAngles.z);
+            }
         }
     }
 
