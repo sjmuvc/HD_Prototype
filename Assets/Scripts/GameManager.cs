@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     public Material greenMaterial;
     public Material lineMaterial;
     public GameObject dragObject;
-    Vector3 rotatePivot;
     public Text dragText;
 
     public List<GameObject> stackObjects = new List<GameObject>();

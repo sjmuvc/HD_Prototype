@@ -17,6 +17,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     LineRenderer lineRenderer;
     Material virtualObjectOriginMat;
     MeshCollider meshCollider;
+    Vector3 startPosition;
 
     float cameraToObjectDistance = 20;
     float mouseRayDistance = 1000;
@@ -45,6 +46,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         pivot = GetComponent<MeshCollider>().bounds.center;
         Objectpivot = new GameObject();
         Objectpivot.transform.position = pivot;
+        startPosition = Objectpivot.transform.position;
         this.transform.parent = Objectpivot.transform;
         settingPivotPosition = this.transform.localPosition;
         settingPivotRotation = this.transform.localEulerAngles;
@@ -247,7 +249,7 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
     public void GotoObjectZone()
     {
         SettingObjectTransform();
-        Objectpivot.transform.position = new Vector3(gameManager.objectZone.transform.position.x, gameManager.objectZone.transform.position.y + 5, gameManager.objectZone.transform.position.z);
+        Objectpivot.transform.position = startPosition;
         Objectpivot.transform.parent = gameManager.objectZone.transform.Find("Objects").gameObject.transform;
     }
 
