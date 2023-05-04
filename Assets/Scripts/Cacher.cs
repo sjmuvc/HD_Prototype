@@ -7,7 +7,7 @@ using UnityEngine.Windows;
 //       각 동적 클래스에 들어가는 Getter의 FindObjectOfType 호출을 최소화 하기 위한 임시방편.
 public static class Cacher
 { 
-    static CargoManager cargo;
+    static Cargo cargo;
     static UIManager ui;
     static InputManager input;
     static ULDManager uld;
@@ -15,13 +15,13 @@ public static class Cacher
 
     static Cacher()
     {
-        cargo = GameObject.FindObjectOfType<CargoManager>();
+        cargo = GameObject.FindObjectOfType<Cargo>();
         ui = GameObject.FindObjectOfType<UIManager>();
         input = GameObject.FindObjectOfType<InputManager>();
         uld = GameObject.FindObjectOfType<ULDManager>();
         data = GameObject.FindObjectOfType<DataManager>();
     }
-    public static CargoManager cargoManager
+    public static Cargo cargoManager
     {
         get
         {

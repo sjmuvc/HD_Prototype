@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class VirtualObjectTrigger : MonoBehaviour
 {
-    public CargoManager cargoManager;
+    public Cargo cargoManager;
 
     private void OnTriggerEnter(Collider other)
     {

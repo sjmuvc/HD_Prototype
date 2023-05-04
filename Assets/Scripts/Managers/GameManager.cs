@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         {
             if (stackNum - 1 >= 0) 
             {
-                stackObjects[stackNum - 1].GetComponent<CargoManager>().GotoObjectZone();
+                stackObjects[stackNum - 1].GetComponent<Cargo>().GotoObjectZone();
                 stackObjects.RemoveAt(stackNum - 1);
                 stackNum--;
             }
