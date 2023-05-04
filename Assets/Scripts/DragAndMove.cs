@@ -51,7 +51,6 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         settingPivotPosition = this.transform.localPosition;
         settingPivotRotation = this.transform.localEulerAngles;
         Objectpivot.name = this.gameObject.name;
-        GotoObjectZone();
 
         // 피봇 위치를 맞춘 가상 오브젝트 생성하고 false
         virtualObject = Instantiate(Objectpivot, Objectpivot.transform);
@@ -65,6 +64,8 @@ public class DragAndMove : MonoBehaviour, IPointerClickHandler
         virtualObject.transform.GetChild(0).gameObject.AddComponent<VirtualObjectTrigger>();
         virtualObject.transform.GetChild(0).gameObject.GetComponent<VirtualObjectTrigger>().dragAndMove = this.GetComponent<DragAndMove>();
         virtualObject.SetActive(false);
+
+        GotoObjectZone();
     }
 
     void AddComponenet()
