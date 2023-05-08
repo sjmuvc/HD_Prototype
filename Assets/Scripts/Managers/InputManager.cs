@@ -10,11 +10,11 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            if (Cacher.uldManager.stackNum - 1 >= 0)
+            if (Cacher.cargoManager.stackNum - 1 >= 0)
             {
-                Cacher.uldManager.stackObjects[Cacher.uldManager.stackNum - 1].GetComponent<Cargo>().GotoObjectZone();
-                Cacher.uldManager.stackObjects.RemoveAt(Cacher.uldManager.stackNum - 1);
-                Cacher.uldManager.stackNum--;
+                Cacher.cargoManager.stackObjects[Cacher.cargoManager.stackNum - 1].GetComponent<Cargo>().GotoObjectZone();
+                Cacher.cargoManager.stackObjects.RemoveAt(Cacher.cargoManager.stackNum - 1);
+                Cacher.cargoManager.stackNum--;
             }
         }
 

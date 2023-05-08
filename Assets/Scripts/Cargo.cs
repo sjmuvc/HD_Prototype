@@ -100,7 +100,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         Vector3 mousePos = Input.mousePosition;
         Vector3 worldMousePos = Cacher.uiManager.mainCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cameraToObjectDistance)); // 카메라로부터 거리값
         Objectpivot.transform.position = worldMousePos;
-        Cacher.uldManager.AllFreeze(true);
+        Cacher.cargoManager.AllFreeze(true);
         RayPositioning(worldMousePos);
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -142,15 +142,15 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         {
             Objectpivot.transform.position = new Vector3(Objectpivot.transform.position.x, currentStackHeight + objectHeight / 2, Objectpivot.transform.position.z);
             rigidBody.isKinematic = false;
-            Cacher.uldManager.stackObjects.Add(this.gameObject);
-            Cacher.uldManager.stackNum++;
+            Cacher.cargoManager.stackObjects.Add(this.gameObject);
+            Cacher.cargoManager.stackNum++;
         }
         else
         {
             GotoObjectZone();
         }
         Simulation(false);
-        Cacher.uldManager.AllFreeze(false);
+        Cacher.cargoManager.AllFreeze(false);
     }
 
     private void OnMouseDown()

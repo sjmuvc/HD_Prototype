@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ULDManager : MonoBehaviour
 {
+    public ULD[] ulds;
+    public ULD currentULD;
+
     public GameObject uld;
     public GameObject uld_Plane;
     public float uldHeight;
@@ -11,9 +14,6 @@ public class ULDManager : MonoBehaviour
     GameObject virtualPlane;
     public float virtualPlaneHeight;
     public MeshRenderer virtualPlaneMeshRenderer;
-
-    public List<GameObject> stackObjects = new List<GameObject>();
-    public int stackNum;
 
     private void Awake()
     {
@@ -24,21 +24,6 @@ public class ULDManager : MonoBehaviour
         virtualPlane = GameObject.Find("ULD_VirtualPlane");
         virtualPlaneMeshRenderer = virtualPlane.GetComponent<MeshRenderer>();
         virtualPlaneHeight = virtualPlane.transform.position.y;
-    }
-
-    public void AllFreeze(bool freeze)
-    {
-        for (int i = 0; i < stackNum; i++)
-        {
-            if (freeze)
-            {
-                stackObjects[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            }
-            else
-            {
-                stackObjects[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            }
-        }
     }
 
     public void ResetULD()
