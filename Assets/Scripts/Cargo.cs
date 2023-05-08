@@ -98,7 +98,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     private void OnMouseDrag()
     {
         Vector3 mousePos = Input.mousePosition;
-        Vector3 worldMousePos = gameManager.cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cameraToObjectDistance)); // 카메라로부터 거리값
+        Vector3 worldMousePos = Cacher.uiManager.mainCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cameraToObjectDistance)); // 카메라로부터 거리값
         Objectpivot.transform.position = worldMousePos;
         Cacher.uldManager.AllFreeze(true);
         RayPositioning(worldMousePos);
@@ -111,7 +111,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
 
     void RayPositioning(Vector3 worldMousePos)
     {
-        Ray ray = gameManager.cam.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Cacher.uiManager.mainCamera.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * mouseRayDistance, Color.red);
 
         int layerMask = 1 << LayerMask.NameToLayer("Virtual Plane"); // Layer가 Virtual Plane인 것만 검출

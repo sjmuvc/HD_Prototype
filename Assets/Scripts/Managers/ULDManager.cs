@@ -40,4 +40,14 @@ public class ULDManager : MonoBehaviour
             }
         }
     }
+
+    public void ResetULD()
+    {
+        
+    }
+
+    public void ChangeULD()
+    {
+
+    }
 }

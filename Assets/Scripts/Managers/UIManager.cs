@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    TopPanel topPanel;
+    ULDInfoPanel ULDInfoPanel;
+    BottomPanel bottomPanel;
+    CloundPanel cloundPanel;
+    public Camera mainCamera;
 
-    void Update()
+    private void Awake()
     {
-        
+        mainCamera = Camera.main;
     }
 }
