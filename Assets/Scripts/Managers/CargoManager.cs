@@ -11,9 +11,10 @@ public class CargoManager : MonoBehaviour
     public List<GameObject> uldObjects = new List<GameObject>();
     public int uldObjectsNum;
 
-    public void GenerateCargo(CargoInfo cargoInfo)
+    public void GenerateCargo(int cargosQuantity)
     {
-
+        // 화물 생성해주고 CargoInfo 추가
+        Debug.Log(cargosQuantity);
     }
 
     public void RemoveAtuldObjects()

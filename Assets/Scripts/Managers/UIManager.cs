@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     TopPanel topPanel;
     ULDInfoPanel ULDInfoPanel;
     BottomPanel bottomPanel;
-    CloudPanel cloundPanel;
+    CloudPanel cloudPanel;
     
 
     private void Awake()
