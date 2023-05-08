@@ -268,7 +268,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     {
         SettingObjectTransform();
         Objectpivot.transform.position = startPosition;
-        Objectpivot.transform.parent = gameManager.objectZone.transform.Find("Objects").gameObject.transform;
+        Objectpivot.transform.parent = Cacher.cargoManager.cargoZone.transform.Find("Objects").gameObject.transform;
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)

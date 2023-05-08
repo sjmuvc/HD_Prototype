@@ -6,14 +6,21 @@ public class CargoManager : MonoBehaviour
 {
     Cargo[] cargos;
 
+    public GameObject cargoZone;
     public GameObject dragObject;
 
     public List<GameObject> uldObjects = new List<GameObject>();
     public int uldObjectsNum;
 
+    private void Awake()
+    {
+        cargoZone = GameObject.Find("CargoZone");
+    }
+
     public void GenerateCargo(int cargosQuantity)
     {
         // 화물 생성해주고 CargoInfo 추가
+        //Instantiate(Objectpivot, cargoZone.transform);
         Debug.Log(cargosQuantity);
     }
 

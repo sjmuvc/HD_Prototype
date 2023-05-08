@@ -11,18 +11,12 @@ public class GameManager : MonoBehaviour
     UIManager uiManager;
     ULDManager ULDManager;
 
-    public GameObject objectZone;
     public Material redMaterial;
     public Material greenMaterial;
     public Material lineMaterial;
     
     //public Text dragText;
     //List<Vector3> originTransformForSimulation = new List<Vector3>();
-
-    void Awake()
-    {
-        objectZone = GameObject.Find("ObjectZone");
-    }
 
     private void Initialize()
     {
