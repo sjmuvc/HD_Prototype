@@ -142,8 +142,8 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         {
             Objectpivot.transform.position = new Vector3(Objectpivot.transform.position.x, currentStackHeight + objectHeight / 2, Objectpivot.transform.position.z);
             rigidBody.isKinematic = false;
-            gameManager.stackObjects.Add(this.gameObject);
-            gameManager.stackNum++;
+            Cacher.uldManager.stackObjects.Add(this.gameObject);
+            Cacher.uldManager.stackNum++;
         }
         else
         {
@@ -155,7 +155,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
 
     private void OnMouseDown()
     {
-        Objectpivot.transform.parent = gameManager.uld.transform.Find("Objects").gameObject.transform;
+        Objectpivot.transform.parent = Cacher.uldManager.uld.transform.Find("Objects").gameObject.transform;
         gameManager.dragObject = Objectpivot;
         SettingObjectTransform();
         rigidBody.isKinematic = true;

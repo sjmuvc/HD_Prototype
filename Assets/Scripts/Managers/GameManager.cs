@@ -6,59 +6,29 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Camera cam;
-    public float uldHeight;
+    
     public float newObjectHeight;
     public float virtualPlaneHeight;
     GameObject virtualPlane;
     public MeshRenderer virtualPlaneMeshRenderer;
-    public GameObject uld;
-    public GameObject uld_Plane;
     public GameObject objectZone;
-    float totalWeight;
     public Material redMaterial;
     public Material greenMaterial;
     public Material lineMaterial;
     public GameObject dragObject;
-    public Text dragText;
-    float maxCargoCount = 100;
+    //public Text dragText;
+    //float maxCargoCount = 100;
+    //float totalWeight;
 
-    public List<GameObject> stackObjects = new List<GameObject>();
-    public int stackNum;
-    List<Vector3> originTransformForSimulation = new List<Vector3>();
-    
+    //List<Vector3> originTransformForSimulation = new List<Vector3>();
+
     void Awake()
     {
         cam = Camera.main;
         objectZone = GameObject.Find("ObjectZone");
         virtualPlane = GameObject.Find("ULD_VirtualPlane");
         virtualPlaneMeshRenderer = virtualPlane.GetComponent<MeshRenderer>();
-        virtualPlaneHeight = virtualPlane.transform.position.y;
-        uld = GameObject.Find("ULD");
-        uld_Plane = GameObject.Find("ULD_Plane");
-        uldHeight = uld_Plane.transform.position.y;  
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            if (stackNum - 1 >= 0) 
-            {
-                stackObjects[stackNum - 1].GetComponent<Cargo>().GotoObjectZone();
-                stackObjects.RemoveAt(stackNum - 1);
-                stackNum--;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            uld.transform.localEulerAngles = new Vector3(uld.transform.localEulerAngles.x, uld.transform.localEulerAngles.y + 10, uld.transform.localEulerAngles.z);
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            uld.transform.localEulerAngles = new Vector3(uld.transform.localEulerAngles.x, uld.transform.localEulerAngles.y - 10, uld.transform.localEulerAngles.z);
-        }
+        virtualPlaneHeight = virtualPlane.transform.position.y; 
     }
 
     public void SaveOriginTransform()

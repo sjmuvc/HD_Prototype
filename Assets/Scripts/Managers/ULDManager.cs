@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class ULDManager : MonoBehaviour
 {
+    public GameObject uld;
+    public GameObject uld_Plane;
+    public float uldHeight;
+
     public List<GameObject> stackObjects = new List<GameObject>();
     public int stackNum;
+
+    private void Awake()
+    {
+        uld = GameObject.Find("ULD");
+        uld_Plane = GameObject.Find("ULD_Plane");
+        uldHeight = uld_Plane.transform.position.y;
+    }
 
     public void AllFreeze(bool freeze)
     {
