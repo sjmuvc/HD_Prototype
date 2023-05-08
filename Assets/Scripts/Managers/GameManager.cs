@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    CargoManager cargoManager;
+    DataManager dataManager;
+    InputManager inputManager;
+    UIManager uiManager;
+    ULDManager ULDManager;
+
     public GameObject objectZone;
     public Material redMaterial;
     public Material greenMaterial;
@@ -16,6 +22,11 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         objectZone = GameObject.Find("ObjectZone");
+    }
+
+    private void Initialize()
+    {
+
     }
 
     public void SaveOriginTransform()
