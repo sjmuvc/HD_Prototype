@@ -17,7 +17,7 @@ public class ULDManager : MonoBehaviour
 
     private void Awake()
     {
-        uld = GameObject.Find("ULD");
+        uld = GameObject.FindGameObjectWithTag("ULD");
         uld_Plane = GameObject.Find("ULD_Plane");
         uldHeight = uld_Plane.transform.position.y;
 
