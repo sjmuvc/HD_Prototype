@@ -4,5 +4,11 @@ using UnityEngine;
 
 public class ULD : MonoBehaviour
 {
+    public string typeName;
+    public float volume;
 
+    void ResetULD()
+    {
+
+    }
 }

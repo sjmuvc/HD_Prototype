@@ -16,16 +16,18 @@ public class BottomPanel : MonoBehaviour
 
     void OnClickButton_SCB1()
     {
-        Cacher.uldManager.ChangeULD();
+        int num = 0;
+        Cacher.uldManager.ChangeULD(num);
     }
 
     void OnClickButton_SCB2()
     {
-        Cacher.uldManager.ChangeULD();
+        int num = 1;
+        Cacher.uldManager.ChangeULD(num);
     }
 
     void OnClickButton_SpawnCargo()
     {
-
+        //Cacher.cargoManager.GenerateCargo();
     }
 }

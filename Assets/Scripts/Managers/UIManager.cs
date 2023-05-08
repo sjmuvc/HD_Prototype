@@ -5,14 +5,18 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public Camera mainCamera;
+
     TopPanel topPanel;
     ULDInfoPanel ULDInfoPanel;
     BottomPanel bottomPanel;
     CloundPanel cloundPanel;
-    public Camera mainCamera;
+    
 
     private void Awake()
     {
         mainCamera = Camera.main;
+
+
     }
 }

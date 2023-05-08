@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class CargoManager : MonoBehaviour
 {
+    Cargo[] cargos;
+
     public List<GameObject> stackObjects = new List<GameObject>();
     public int stackNum;
+
+    public void GenerateCargo(CargoInfo cargoInfo)
+    {
+
+    }
 
     public void AllFreeze(bool freeze)
     {

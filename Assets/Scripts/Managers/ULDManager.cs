@@ -15,7 +15,13 @@ public class ULDManager : MonoBehaviour
     public float virtualPlaneHeight;
     public MeshRenderer virtualPlaneMeshRenderer;
 
-    private void Awake()
+    private void Awake() 
+    {
+        Initialize();
+        currentULD = GameObject.FindGameObjectWithTag("ULD").GetComponent<ULD>();
+    }
+
+    void Initialize()
     {
         uld = GameObject.FindGameObjectWithTag("ULD");
         uld_Plane = GameObject.Find("ULD_Plane");
@@ -31,8 +37,11 @@ public class ULDManager : MonoBehaviour
         
     }
 
-    public void ChangeULD()
+    public void ChangeULD(int selectedULDNum)
     {
-
+        ResetULD();
+        Destroy(currentULD.gameObject);
+        currentULD = Instantiate(ulds[selectedULDNum]); // »õ uld »ý¼º
+        Initialize();
     }
 }
