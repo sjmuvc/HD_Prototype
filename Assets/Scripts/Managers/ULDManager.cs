@@ -14,11 +14,9 @@ public class ULDManager : MonoBehaviour
         currentULD.Initialize();
     }
 
-    
-
     public void ResetULD()
     {
-        
+        Cacher.cargoManager.GotoObjectZoneAll();
     }
 
     public void ChangeULD(int selectedULDNum)

@@ -10,12 +10,7 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            if (Cacher.cargoManager.stackNum - 1 >= 0)
-            {
-                Cacher.cargoManager.stackObjects[Cacher.cargoManager.stackNum - 1].GetComponent<Cargo>().GotoObjectZone();
-                Cacher.cargoManager.stackObjects.RemoveAt(Cacher.cargoManager.stackNum - 1);
-                Cacher.cargoManager.stackNum--;
-            }
+            Cacher.cargoManager.RemoveAtuldObjects();
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
