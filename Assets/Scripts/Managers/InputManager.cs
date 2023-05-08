@@ -20,12 +20,12 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            Cacher.uldManager.uld.transform.localEulerAngles = new Vector3(Cacher.uldManager.uld.transform.localEulerAngles.x, Cacher.uldManager.uld.transform.localEulerAngles.y + 10, Cacher.uldManager.uld.transform.localEulerAngles.z);
+            Cacher.uldManager.currentULD.uld.transform.localEulerAngles = new Vector3(Cacher.uldManager.currentULD.uld.transform.localEulerAngles.x, Cacher.uldManager.currentULD.uld.transform.localEulerAngles.y + 10, Cacher.uldManager.currentULD.uld.transform.localEulerAngles.z);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            Cacher.uldManager.uld.transform.localEulerAngles = new Vector3(Cacher.uldManager.uld.transform.localEulerAngles.x, Cacher.uldManager.uld.transform.localEulerAngles.y - 10, Cacher.uldManager.uld.transform.localEulerAngles.z);
+            Cacher.uldManager.currentULD.uld.transform.localEulerAngles = new Vector3(Cacher.uldManager.currentULD.uld.transform.localEulerAngles.x, Cacher.uldManager.currentULD.uld.transform.localEulerAngles.y - 10, Cacher.uldManager.currentULD.uld.transform.localEulerAngles.z);
         }
     }
 }
