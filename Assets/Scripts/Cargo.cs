@@ -133,7 +133,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     }
     private void OnMouseUp()
     {
-        gameManager.dragObject = null;
+        Cacher.inputManager.dragObject = null;
         lineRenderer.enabled = false;
         virtualObject.SetActive(false);
         gameManager.virtualPlaneMeshRenderer.enabled = true;
@@ -156,7 +156,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     private void OnMouseDown()
     {
         Objectpivot.transform.parent = Cacher.uldManager.uld.transform.Find("Objects").gameObject.transform;
-        gameManager.dragObject = Objectpivot;
+        Cacher.inputManager.dragObject = Objectpivot;
         SettingObjectTransform();
         rigidBody.isKinematic = true;
     }

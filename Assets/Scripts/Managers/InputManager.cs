@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    public GameObject dragObject;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))

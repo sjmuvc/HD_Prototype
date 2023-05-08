@@ -6,16 +6,15 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Camera cam;
-    
-    public float newObjectHeight;
-    public float virtualPlaneHeight;
+
     GameObject virtualPlane;
+    public float virtualPlaneHeight;
     public MeshRenderer virtualPlaneMeshRenderer;
     public GameObject objectZone;
     public Material redMaterial;
     public Material greenMaterial;
     public Material lineMaterial;
-    public GameObject dragObject;
+    
     //public Text dragText;
     //float maxCargoCount = 100;
     //float totalWeight;
