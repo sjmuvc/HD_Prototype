@@ -20,7 +20,7 @@ public class DataManager : MonoBehaviour
     {
         List<string> strings = new List<string>();
 
-        Cacher.cargoManager.GenerateCargo(strings);
+        //Cacher.cargoManager.GenerateCargo(strings);
 
 
     }

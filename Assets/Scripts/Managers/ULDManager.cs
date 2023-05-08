@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class ULDManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<GameObject> stackObjects = new List<GameObject>();
+    public int stackNum;
 
-    // Update is called once per frame
-    void Update()
+    public void AllFreeze(bool freeze)
     {
-        
+        for (int i = 0; i < stackNum; i++)
+        {
+            if (freeze)
+            {
+                stackObjects[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            }
+            else
+            {
+                stackObjects[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            }
+        }
     }
 }

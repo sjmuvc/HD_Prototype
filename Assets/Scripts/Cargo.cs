@@ -100,7 +100,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         Vector3 mousePos = Input.mousePosition;
         Vector3 worldMousePos = gameManager.cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cameraToObjectDistance)); // 카메라로부터 거리값
         Objectpivot.transform.position = worldMousePos;
-        gameManager.AllFreeze(true);
+        Cacher.uldManager.AllFreeze(true);
         RayPositioning(worldMousePos);
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -150,7 +150,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
             GotoObjectZone();
         }
         Simulation(false);
-        gameManager.AllFreeze(false);
+        Cacher.uldManager.AllFreeze(false);
     }
 
     private void OnMouseDown()
