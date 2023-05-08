@@ -8,6 +8,10 @@ public class ULDManager : MonoBehaviour
     public GameObject uld_Plane;
     public float uldHeight;
 
+    GameObject virtualPlane;
+    public float virtualPlaneHeight;
+    public MeshRenderer virtualPlaneMeshRenderer;
+
     public List<GameObject> stackObjects = new List<GameObject>();
     public int stackNum;
 
@@ -16,6 +20,10 @@ public class ULDManager : MonoBehaviour
         uld = GameObject.Find("ULD");
         uld_Plane = GameObject.Find("ULD_Plane");
         uldHeight = uld_Plane.transform.position.y;
+
+        virtualPlane = GameObject.Find("ULD_VirtualPlane");
+        virtualPlaneMeshRenderer = virtualPlane.GetComponent<MeshRenderer>();
+        virtualPlaneHeight = virtualPlane.transform.position.y;
     }
 
     public void AllFreeze(bool freeze)

@@ -118,17 +118,17 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         if (Physics.Raycast(ray, out hitLayerMask, Mathf.Infinity, layerMask)) // layerMask에 닿은 RaycastHit 반환
         {
             isOnVirtualPlane = true;
-            Objectpivot.transform.position = new Vector3(hitLayerMask.point.x, gameManager.virtualPlaneHeight + (objectHeight / 2) - 0.00001f, hitLayerMask.point.z); // 객체의 위치를 RaycastHit의 point값 위치로 이동
+            Objectpivot.transform.position = new Vector3(hitLayerMask.point.x, Cacher.uldManager.virtualPlaneHeight + (objectHeight / 2) - 0.00001f, hitLayerMask.point.z); // 객체의 위치를 RaycastHit의 point값 위치로 이동
 
             DetectStackHeight();
             DrawVirtualObject(isOnVirtualPlane);
-            gameManager.virtualPlaneMeshRenderer.enabled = false;
+            Cacher.uldManager.virtualPlaneMeshRenderer.enabled = false;
         }
         else
         {
             isOnVirtualPlane = false;
             DrawVirtualObject(isOnVirtualPlane);
-            gameManager.virtualPlaneMeshRenderer.enabled = true;
+            Cacher.uldManager.virtualPlaneMeshRenderer.enabled = true;
         }
     }
     private void OnMouseUp()
@@ -136,7 +136,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         Cacher.inputManager.dragObject = null;
         lineRenderer.enabled = false;
         virtualObject.SetActive(false);
-        gameManager.virtualPlaneMeshRenderer.enabled = true;
+        Cacher.uldManager.virtualPlaneMeshRenderer.enabled = true;
 
         if (isOnVirtualPlane && isEnableStack)
         {
@@ -210,7 +210,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         #endregion
 
         // 벽 안쪽이어야만 내려놓을 수 있음
-        if (isInsideTheWall == true && gameManager.virtualPlaneHeight > currentStackHeight + objectHeight)
+        if (isInsideTheWall == true && Cacher.uldManager.virtualPlaneHeight > currentStackHeight + objectHeight)
         {
             EnableStack(true);
         }
@@ -224,7 +224,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     {
         RaycastHit[] sweepTestHitAll;
 
-        sweepTestHitAll = rigidBody.SweepTestAll(-Objectpivot.transform.up, gameManager.virtualPlaneHeight + 5, QueryTriggerInteraction.Ignore);
+        sweepTestHitAll = rigidBody.SweepTestAll(-Objectpivot.transform.up, Cacher.uldManager.virtualPlaneHeight + 5, QueryTriggerInteraction.Ignore);
         if (sweepTestHitAll.Length == 0)
         {
             return;
@@ -240,7 +240,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
                 {
                     sweepTestHitSelected = sweepTestHit;
                 }
-                float rayHeight = gameManager.virtualPlaneHeight - (sweepTestHitSelected.distance);
+                float rayHeight = Cacher.uldManager.virtualPlaneHeight - (sweepTestHitSelected.distance);
                 currentStackHeight = rayHeight;
             }
         }

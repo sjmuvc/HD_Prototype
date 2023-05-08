@@ -6,10 +6,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Camera cam;
-
-    GameObject virtualPlane;
-    public float virtualPlaneHeight;
-    public MeshRenderer virtualPlaneMeshRenderer;
     public GameObject objectZone;
     public Material redMaterial;
     public Material greenMaterial;
@@ -25,9 +21,6 @@ public class GameManager : MonoBehaviour
     {
         cam = Camera.main;
         objectZone = GameObject.Find("ObjectZone");
-        virtualPlane = GameObject.Find("ULD_VirtualPlane");
-        virtualPlaneMeshRenderer = virtualPlane.GetComponent<MeshRenderer>();
-        virtualPlaneHeight = virtualPlane.transform.position.y; 
     }
 
     public void SaveOriginTransform()
