@@ -34,12 +34,14 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     float replayTimeToSimulation = 2.5f;
     bool isSimulationOn;
     bool isEnableStack;
-
+    int layerName;
 
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         this.gameObject.tag = "StackObject";
+        layerName = LayerMask.NameToLayer("Cargo");
+        this.gameObject.layer = layerName;
 
         AddComponenet();
 
@@ -133,7 +135,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     }
     private void OnMouseUp()
     {
-        Cacher.inputManager.dragObject = null;
+        Cacher.cargoManager.dragObject = null;
         lineRenderer.enabled = false;
         virtualObject.SetActive(false);
         Cacher.uldManager.currentULD.virtualPlaneMeshRenderer.enabled = true;
@@ -156,7 +158,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     private void OnMouseDown()
     {
         Objectpivot.transform.parent = Cacher.uldManager.currentULD.uld.transform.Find("Objects").gameObject.transform;
-        Cacher.inputManager.dragObject = Objectpivot;
+        Cacher.cargoManager.dragObject = Objectpivot;
         SettingObjectTransform();
         rigidBody.isKinematic = true;
     }

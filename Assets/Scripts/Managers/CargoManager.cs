@@ -6,6 +6,8 @@ public class CargoManager : MonoBehaviour
 {
     Cargo[] cargos;
 
+    public GameObject dragObject;
+
     public List<GameObject> uldObjects = new List<GameObject>();
     public int uldObjectsNum;
 

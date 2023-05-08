@@ -407,7 +407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93aa659042a20964e920b709c026eb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragObject: {fileID: 0}
 --- !u!1 &93986916
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,11 +805,6 @@ MonoBehaviour:
   - {fileID: 5968816913162537274, guid: d8b6fe4bff6bcf0499f2ab7ff55bd7f9, type: 3}
   - {fileID: 5229913074415271, guid: b33238f3498183049a150eb82b67debd, type: 3}
   currentULD: {fileID: 0}
-  uld: {fileID: 0}
-  uld_Plane: {fileID: 0}
-  uldHeight: 0
-  virtualPlaneHeight: 0
-  virtualPlaneMeshRenderer: {fileID: 0}
 --- !u!1 &224391725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,6 +2758,7 @@ GameObject:
   - component: {fileID: 1795248202}
   - component: {fileID: 1795248203}
   - component: {fileID: 1795248204}
+  - component: {fileID: 1795248205}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -2814,6 +2809,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   btn_SCB1: {fileID: 29014917}
   btn_SCB2: {fileID: 196626308}
+--- !u!114 &1795248205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795248201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b87943d3fe7bd45b0b3299eb486e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1841509338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2956,8 +2963,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a02c0580c615240b0bb71b5fd53780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackObjects: []
-  stackNum: 0
+  dragObject: {fileID: 0}
+  uldObjects: []
+  uldObjectsNum: 0
 --- !u!1 &1946955527
 GameObject:
   m_ObjectHideFlags: 0
