@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
+    private void Start()
+    {
+        List<Dictionary<string, object>> csv_Data = CSVReader.Read("LibraryExmaple");
+
+        for (int i = 0; i < csv_Data.Count; i++)
+        {
+            Cacher.cargoManager.cargos[i].GetComponent<CargoInfo>().width = float.Parse(csv_Data[i]["width"].ToString());
+        }
+    }
 
     public void Excel()
     {
@@ -13,4 +22,10 @@ public class DataManager : MonoBehaviour
 
 
     }
+    /*
+    public CargoInfo[] ParseCargoDB()
+    {
+        return 
+    }
+    */
 }
