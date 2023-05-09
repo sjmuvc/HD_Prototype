@@ -37,7 +37,14 @@ public class BottomPanel : MonoBehaviour
 
     int ParseQuantity(InputField inputField_Quantity)
     {
-        int quantity = int.Parse(inputField_Quantity.text);
-        return quantity;
+        if(inputField_Quantity != null)
+        {
+            int quantity = int.Parse(inputField_Quantity.text);
+            return quantity;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

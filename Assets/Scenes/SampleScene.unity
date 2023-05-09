@@ -2314,13 +2314,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1345534651}
   m_TextComponent: {fileID: 1668313328}
   m_Placeholder: {fileID: 466856815}
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 1
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
@@ -3500,6 +3500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a02c0580c615240b0bb71b5fd53780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cargoZone: {fileID: 0}
   dragObject: {fileID: 0}
   uldObjects: []
   uldObjectsNum: 0
@@ -3722,7 +3723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864178259e4e0a34eab18df4cb47475f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectZone: {fileID: 0}
   redMaterial: {fileID: 2100000, guid: 97d40659067b8d145a9adcba0a69a0ba, type: 2}
   greenMaterial: {fileID: 2100000, guid: 5d3ea9c55ee1b94438c797a180899b69, type: 2}
   lineMaterial: {fileID: 2100000, guid: d8ac491a31023b343ab5dab23b0c93ae, type: 2}
