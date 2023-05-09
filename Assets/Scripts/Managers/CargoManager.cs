@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class CargoManager : MonoBehaviour
 {
-    Cargo[] cargos;
+    public Cargo[] cargos;
 
     public GameObject cargoZone;
     public GameObject dragObject;
 
     public List<GameObject> uldObjects = new List<GameObject>();
     public int uldObjectsNum;
+
+    
 
     private void Awake()
     {

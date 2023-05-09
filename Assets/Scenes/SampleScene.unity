@@ -3500,6 +3500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a02c0580c615240b0bb71b5fd53780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cargos: []
   cargoZone: {fileID: 0}
   dragObject: {fileID: 0}
   uldObjects: []

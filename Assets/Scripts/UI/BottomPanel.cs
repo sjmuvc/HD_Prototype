@@ -11,6 +11,8 @@ public class BottomPanel : MonoBehaviour
     public Button btn_SpawnCargo;
     public InputField inputField_Quantity;
 
+    int maxInputQuantity = 100;
+
     private void Awake()
     {
         btn_SCB1.onClick.AddListener(OnClickButton_SCB1);
@@ -35,11 +37,20 @@ public class BottomPanel : MonoBehaviour
         Cacher.cargoManager.GenerateCargo(ParseQuantity(inputField_Quantity));
     }
 
-    int ParseQuantity(InputField inputField_Quantity)
+    int ParseQuantity(InputField inputQuantity)
     {
-        if(inputField_Quantity != null)
+        if(inputQuantity != null)
         {
-            int quantity = int.Parse(inputField_Quantity.text);
+            int quantity = int.Parse(inputQuantity.text);
+            if (quantity > maxInputQuantity)
+            {
+                quantity = maxInputQuantity;
+            }
+            else if (quantity < 0)
+            {
+                quantity = 0;
+            }
+            inputField_Quantity.GetComponent<InputField>().text = quantity.ToString();
             return quantity;
         }
         else

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class CargoInfo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string modelName;
+    public float width;
+    public float length;
+    public float height;
+    public float volume_Water;
+    public float volume_Square;
+    public float weight;
+    public bool isStructed;
+    public float spawnRate;
 }
