@@ -10,8 +10,8 @@ public class TopPanel : MonoBehaviour
 
     private void Awake()
     {
-        btn_Reload.onClick.AddListener(OnClickButton_Reload);
-        btn_Home.onClick.AddListener(OnClickButton_Home);
+        //btn_Reload.onClick.AddListener(OnClickButton_Reload);
+        //btn_Home.onClick.AddListener(OnClickButton_Home);
     }
 
     void OnClickButton_Reload()

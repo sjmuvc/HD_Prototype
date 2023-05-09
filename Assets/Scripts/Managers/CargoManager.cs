@@ -11,6 +11,9 @@ public class CargoManager : MonoBehaviour
 
     public List<GameObject> uldObjects = new List<GameObject>();
     public int uldObjectsNum;
+    int cargoIndex = 0;
+    int remainCargoIndex;
+    int currentGenerateCargo = 0;
 
     private void Awake()
     {
@@ -19,14 +22,27 @@ public class CargoManager : MonoBehaviour
 
     public void GenerateCargo(int cargosQuantity)
     {
-        // 화물 생성해주고 CargoInfo 추가
-        for(int i = 0; i < cargosQuantity; i++)
+        // spawnRate만큼 갯수 생성
+        for (int i = 0; i < cargos.Length; i++)
         {
-            for (int j = 0; j < Mathf.Floor((cargosQuantity * cargos[i].GetComponent<CargoInfo>().spawnRate)); j++) 
+            if (cargos[cargoIndex].GetComponent<CargoInfo>().spawnRate == 0)
             {
-                Instantiate(cargos[i], cargoZone.transform);
+                remainCargoIndex = cargoIndex;
             }
-            
+            for (int j = 0; j < Mathf.Floor((cargosQuantity * cargos[cargoIndex].GetComponent<CargoInfo>().spawnRate)); j++) 
+            {
+                Instantiate(cargos[cargoIndex], cargoZone.transform);
+                currentGenerateCargo++;    
+            }
+            cargoIndex++;
+        }
+        Debug.Log(cargosQuantity);
+        Debug.Log(currentGenerateCargo);
+        Debug.Log(remainCargoIndex);
+        // 부족한 갯수는 spawnRaterk 0인 오브젝트로 채움
+        for (int i = 0; i < cargosQuantity - currentGenerateCargo; i++) 
+        {
+            Instantiate(cargos[remainCargoIndex], cargoZone.transform);
         }
     }
 
