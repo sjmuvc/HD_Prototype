@@ -8,8 +8,8 @@ public class CargoInfo : MonoBehaviour
     public float width;
     public float length;
     public float height;
-    public float volume_Water;
-    public float volume_Square;
+    public float volume_water;
+    public float volume_square;
     public float weight;
     public bool isStructed;
     public float spawnRate;
