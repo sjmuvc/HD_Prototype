@@ -22,6 +22,7 @@ public class CargoManager : MonoBehaviour
 
     public void GenerateCargo(int cargosQuantity)
     {
+        //Destroy(cargoZone.);
         cargoIndex = 0;
         remainCargoIndex = 0;
         currentGenerateCargo = 0;

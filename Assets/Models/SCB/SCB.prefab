@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 60c3b48448131e74ba933222660b5e84, type: 2}
+  - {fileID: 2100000, guid: 693410f4751b64d408be142de2b25adf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -219,6 +219,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2209aef7fbd3e644683ec09aa65ceb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeName: 
+  volume: 0
+  uld: {fileID: 0}
+  uld_Plane: {fileID: 0}
+  uldHeight: 0
+  virtualPlaneHeight: 0
+  virtualPlaneMeshRenderer: {fileID: 0}
 --- !u!1 &6425119518142078467
 GameObject:
   m_ObjectHideFlags: 0
