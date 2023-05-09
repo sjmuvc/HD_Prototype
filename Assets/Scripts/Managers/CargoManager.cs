@@ -20,11 +20,14 @@ public class CargoManager : MonoBehaviour
     public void GenerateCargo(int cargosQuantity)
     {
         // 화물 생성해주고 CargoInfo 추가
-        for(int i = 0; i < 8; i++)
+        for(int i = 0; i < cargosQuantity; i++)
         {
-            Instantiate(cargos[i], cargoZone.transform);
+            for (int j = 0; j < (cargosQuantity * cargos[i].GetComponent<CargoInfo>().spawnRate); j++) 
+            {
+                Instantiate(cargos[i], cargoZone.transform);
+            }
+            
         }
-        Debug.Log(cargosQuantity);
     }
 
     public void RemoveAtuldObjects()
