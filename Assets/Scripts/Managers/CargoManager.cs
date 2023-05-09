@@ -22,7 +22,7 @@ public class CargoManager : MonoBehaviour
         // 화물 생성해주고 CargoInfo 추가
         for(int i = 0; i < cargosQuantity; i++)
         {
-            for (int j = 0; j < (cargosQuantity * cargos[i].GetComponent<CargoInfo>().spawnRate); j++) 
+            for (int j = 0; j < Mathf.Floor((cargosQuantity * cargos[i].GetComponent<CargoInfo>().spawnRate)); j++) 
             {
                 Instantiate(cargos[i], cargoZone.transform);
             }
