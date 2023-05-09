@@ -22,7 +22,13 @@ public class CargoManager : MonoBehaviour
 
     public void GenerateCargo(int cargosQuantity)
     {
-        //Destroy(cargoZone.);
+        // ÄÄÆ÷³ÍÆ®´Â destroy°¡ ¾ÈµÊ
+        /*
+        for (int i = 0; i < cargoZone.transform.Find("Objects").gameObject.transform.childCount; i++)
+        {
+            Destroy(cargoZone.transform.Find("Objects").gameObject.transform.GetChild(i));
+        }
+        */
         cargoIndex = 0;
         remainCargoIndex = 0;
         currentGenerateCargo = 0;
