@@ -8,9 +8,12 @@ public class CloudPanel : MonoBehaviour
     public float volume;
     public float weight;
     public string priority;
+
     public Text volume_txt;
     public Text weight_txt;
-    public Text priority_txt;
+    public Text priority_txt_1;
+    public Text priority_txt_2;
+
     public GameObject cloudImage;
     float cloudHeight = 3.5f;
 
@@ -24,9 +27,20 @@ public class CloudPanel : MonoBehaviour
                 volume = cargoInfo.volume_water;
                 weight = cargoInfo.weight;
                 priority = cargoInfo.priority;
+                string[] priorityText = priority.Split("]");
+
                 volume_txt.text = ("Wavolumeter: ") + volume.ToString() + ("m©ø");
                 weight_txt.text = ("Weight: ") + weight.ToString() + ("kg");
-                priority_txt.text = ("Priority: ") + priority.ToString();
+                if (priorityText.Length == 1)
+                {
+                    priority_txt_1.text = ("Priority: ");
+                    priority_txt_2.text = ("None");
+                }
+                else if (priorityText.Length == 2)
+                {
+                    priority_txt_1.text = ("Priority: ") + priorityText[0] + ("]");
+                    priority_txt_2.text = priorityText[1];
+                }
                 cloudImage.transform.position = Cacher.uiManager.mainCamera.WorldToScreenPoint(cargoInfo.GetComponent<Cargo>().Objectpivot.transform.position + new Vector3(0, cloudHeight, 0));
             }
             cloudImage.SetActive(active);
