@@ -12,7 +12,6 @@ public class CargoManager : MonoBehaviour
     public GameObject dragObject;
     float cargoZoneLength;
     float currentCargoZoneLength;
-    GameObject lastCargoZoneObject;
 
     public List<GameObject> cargoZoneObjects = new List<GameObject>();  
     public List<GameObject> uldObjects = new List<GameObject>();
@@ -51,11 +50,10 @@ public class CargoManager : MonoBehaviour
             for (int j = 0; j < Mathf.Floor((cargosQuantity * cargos[cargoIndex].GetComponent<CargoInfo>().spawnRate)); j++) 
             {
                 Cargo generatedCargo = Instantiate(cargos[cargoIndex], cargoZone.transform);
-                lastCargoZoneObject = generatedCargo.gameObject;
                 cargoZoneObjects.Add(generatedCargo.gameObject);
                 currentGenerateCargo++;
                 generatedCargo.GetComponent<Cargo>().GenerateSetting();
-                GeneratePositioning(generatedCargo.gameObject);
+                CargoZonePositioning(generatedCargo.gameObject);
             }
             cargoIndex++;
         }
@@ -66,21 +64,21 @@ public class CargoManager : MonoBehaviour
             Cargo generatedCargo =  Instantiate(cargos[remainCargoIndex], cargoZone.transform);
             cargoZoneObjects.Add(generatedCargo.gameObject);
             generatedCargo.GetComponent<Cargo>().GenerateSetting();
-            GeneratePositioning(generatedCargo.gameObject);
+            CargoZonePositioning(generatedCargo.gameObject);
         }
     }
 
-    void GeneratePositioning(GameObject generatedCargo) // 나중에 Cargo로 변경하는게 좋을듯함
+    void CargoZonePositioning(GameObject addedCargo) // 나중에 Cargo로 변경하는게 좋을듯함
     {
-        generatedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = Vector3.zero;
-        if (currentCargoZoneLength + generatedCargo.GetComponent<MeshCollider>().bounds.size.x < cargoZoneLength)
+        addedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = Vector3.zero;
+        if (currentCargoZoneLength + addedCargo.GetComponent<MeshCollider>().bounds.size.x < cargoZoneLength)
         {
-            generatedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = new Vector3(currentCargoZoneLength + generatedCargo.GetComponent<MeshCollider>().bounds.size.x / 2, generatedCargo.GetComponent<MeshCollider>().bounds.size.y / 2, 0);
-            currentCargoZoneLength += generatedCargo.GetComponent<MeshCollider>().bounds.size.x;
+            addedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = new Vector3(currentCargoZoneLength + addedCargo.GetComponent<MeshCollider>().bounds.size.x / 2, addedCargo.GetComponent<MeshCollider>().bounds.size.y / 2, 0);
+            currentCargoZoneLength += addedCargo.GetComponent<MeshCollider>().bounds.size.x;
         }
         else
         {
-            currentCargoZoneLength = lastCargoZoneObject.GetComponent<MeshCollider>().bounds.size.x;
+            currentCargoZoneLength = 0;
         }
     }
 
