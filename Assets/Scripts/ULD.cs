@@ -24,6 +24,20 @@ public class ULD : MonoBehaviour
         virtualPlane = this.transform.Find("ULD_VirtualPlane").gameObject;
         virtualPlaneMeshRenderer = virtualPlane.GetComponent<MeshRenderer>();
         virtualPlaneHeight = virtualPlane.transform.position.y;
+
+        SetVolume();
+    }
+
+    void SetVolume()
+    {
+        if(this.gameObject.name == "SCA")
+        {
+            volume = 19.5f;
+        }
+        else if (this.gameObject.name == "SCB")
+        {
+            volume = 17.7f;
+        }
     }
 
     void ResetULD()

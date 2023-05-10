@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class ULDInfoPanel : MonoBehaviour
 {
@@ -14,15 +15,17 @@ public class ULDInfoPanel : MonoBehaviour
 
     public void AddCargo(CargoInfo cargoInfo)
     {
+        loadedCapacity += cargoInfo.volume_water / Cacher.uldManager.currentULD.volume * 100;
         loadedWeight += cargoInfo.weight;
-        loadedCapacity_txt.text = ("적재율: ") + loadedCapacity.ToString() + ("%");
+        loadedCapacity_txt.text = ("적재율: ") + Math.Round(loadedCapacity, 2).ToString() + ("%");
         loadedWeight_txt.text = ("총 중량: ") + loadedWeight.ToString() + ("t");
     }
 
     public void SubCargo(CargoInfo cargoInfo)
     {
+        loadedCapacity -= cargoInfo.volume_water / Cacher.uldManager.currentULD.volume * 100;
         loadedWeight -= cargoInfo.weight;
-        loadedCapacity_txt.text = ("적재율: ") + loadedCapacity.ToString() + ("%");
+        loadedCapacity_txt.text = ("적재율: ") + Math.Round(loadedCapacity, 2).ToString() + ("%");
         loadedWeight_txt.text = ("총 중량: ") + loadedWeight.ToString() + ("t");
     }
 
