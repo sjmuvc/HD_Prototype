@@ -18,7 +18,7 @@ public class ULDInfoPanel : MonoBehaviour
         loadedCapacity += cargoInfo.volume_water / Cacher.uldManager.currentULD.volume * 100;
         loadedWeight += cargoInfo.weight;
         loadedCapacity_txt.text = ("¿˚¿Á¿≤: ") + Math.Round(loadedCapacity, 2).ToString() + ("%");
-        loadedWeight_txt.text = ("√— ¡ﬂ∑Æ: ") + loadedWeight.ToString() + ("t");
+        loadedWeight_txt.text = ("√— ¡ﬂ∑Æ: ") + loadedWeight.ToString() + ("kg");
     }
 
     public void SubCargo(CargoInfo cargoInfo)
@@ -26,7 +26,7 @@ public class ULDInfoPanel : MonoBehaviour
         loadedCapacity -= cargoInfo.volume_water / Cacher.uldManager.currentULD.volume * 100;
         loadedWeight -= cargoInfo.weight;
         loadedCapacity_txt.text = ("¿˚¿Á¿≤: ") + Math.Round(loadedCapacity, 2).ToString() + ("%");
-        loadedWeight_txt.text = ("√— ¡ﬂ∑Æ: ") + loadedWeight.ToString() + ("t");
+        loadedWeight_txt.text = ("√— ¡ﬂ∑Æ: ") + loadedWeight.ToString() + ("kg");
     }
 
     public void Reset()
@@ -34,6 +34,6 @@ public class ULDInfoPanel : MonoBehaviour
         loadedCapacity = 0;
         loadedWeight = 0;
         loadedCapacity_txt.text = ("¿˚¿Á¿≤: ") + loadedCapacity.ToString() + ("%");
-        loadedWeight_txt.text = ("√— ¡ﬂ∑Æ: ") + loadedWeight.ToString() + ("t");
+        loadedWeight_txt.text = ("√— ¡ﬂ∑Æ: ") + loadedWeight.ToString() + ("kg");
     }
 }
