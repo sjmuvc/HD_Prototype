@@ -271,7 +271,19 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     {
         SettingObjectTransform();
         Objectpivot.transform.parent = Cacher.cargoManager.cargoZone.transform.Find("Objects").gameObject.transform;
-        Objectpivot.transform.position = startPosition;
+        // uld 안에 있었을 경우 CargoZonePositioning 방식 적용
+        /*
+        if (Cacher.cargoManager.uldObjects.Contains(this.gameObject))
+        {
+            Cacher.cargoManager.CargoZonePositioning(this.gameObject);
+        }
+        else
+        {
+            Objectpivot.transform.localPosition = startPosition;
+            Objectpivot.transform.localEulerAngles = startLocalEulerAngles;
+        }
+        */
+        Objectpivot.transform.localPosition = startPosition;
         Objectpivot.transform.localEulerAngles = startLocalEulerAngles;
     }
 
