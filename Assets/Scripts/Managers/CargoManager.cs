@@ -60,7 +60,7 @@ public class CargoManager : MonoBehaviour
             cargoIndex++;
         }
 
-        // 부족한 갯수는 spawnRaterk 0인 오브젝트로 채움
+        // 부족한 갯수는 spawnRate가 0인 오브젝트로 채움
         for (int i = 0; i < cargosQuantity - currentGenerateCargo; i++) 
         {
             Cargo generatedCargo =  Instantiate(cargos[remainCargoIndex], cargoZone.transform);
@@ -72,11 +72,11 @@ public class CargoManager : MonoBehaviour
 
     void GeneratePositioning(GameObject generatedCargo) // 나중에 Cargo로 변경하는게 좋을듯함
     {
-        generatedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = Vector3.zero;
-        if (currentCargoZoneLength + lastCargoZoneObject.GetComponent<MeshCollider>().bounds.size.x < cargoZoneLength)
+        //generatedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = Vector3.zero;
+        if (currentCargoZoneLength + generatedCargo.GetComponent<MeshCollider>().bounds.size.x < cargoZoneLength)
         {
-            generatedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = new Vector3(currentCargoZoneLength + generatedCargo.GetComponent<MeshCollider>().bounds.size.x / 2, generatedCargo.GetComponent<MeshCollider>().bounds.size.y, 0);
-            currentCargoZoneLength += lastCargoZoneObject.GetComponent<MeshCollider>().bounds.size.x;
+            generatedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = new Vector3(currentCargoZoneLength + generatedCargo.GetComponent<MeshCollider>().bounds.size.x / 2, generatedCargo.GetComponent<MeshCollider>().bounds.size.y / 2, 0);
+            currentCargoZoneLength += generatedCargo.GetComponent<MeshCollider>().bounds.size.x;
         }
         else
         {
