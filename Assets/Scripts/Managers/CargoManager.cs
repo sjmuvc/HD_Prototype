@@ -86,7 +86,7 @@ public class CargoManager : MonoBehaviour
     {
         if (uldObjectsNum - 1 >= 0)
         {
-            uldObjects[uldObjectsNum - 1].GetComponent<Cargo>().GotoObjectZone();
+            uldObjects[uldObjectsNum - 1].GetComponent<Cargo>().GotoCargoZone();
             uldObjects.RemoveAt(uldObjectsNum - 1);
             uldObjectsNum--;
         }
@@ -96,7 +96,7 @@ public class CargoManager : MonoBehaviour
     {
         for(int i = 0; i < uldObjectsNum; i++)
         {
-            uldObjects[i].GetComponent<Cargo>().GotoObjectZone();
+            uldObjects[i].GetComponent<Cargo>().GotoCargoZone();
         }
         uldObjects.Clear();
         uldObjectsNum = 0;

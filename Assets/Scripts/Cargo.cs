@@ -50,7 +50,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         pivot = GetComponent<MeshCollider>().bounds.center;
         Objectpivot = new GameObject();
         Objectpivot.transform.position = pivot;
-        startPosition = Objectpivot.transform.position;
+        startPosition = Objectpivot.transform.localPosition;
         startLocalEulerAngles = Objectpivot.transform.localEulerAngles;
         this.transform.parent = Objectpivot.transform;
         settingPivotPosition = this.transform.localPosition;
@@ -70,7 +70,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         virtualObject.transform.GetChild(0).gameObject.GetComponent<VirtualObjectTrigger>().cargoManager = this.GetComponent<Cargo>();
         virtualObject.SetActive(false);
 
-        GotoObjectZone();
+        GotoCargoZone();
     }
 
     void AddComponenet()
@@ -152,7 +152,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            GotoObjectZone();
+            GotoCargoZone();
         }
         Simulation(false);
         Cacher.cargoManager.AllFreeze(false);
@@ -267,12 +267,12 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void GotoObjectZone()
+    public void GotoCargoZone()
     {
         SettingObjectTransform();
+        Objectpivot.transform.parent = Cacher.cargoManager.cargoZone.transform.Find("Objects").gameObject.transform;
         Objectpivot.transform.position = startPosition;
         Objectpivot.transform.localEulerAngles = startLocalEulerAngles;
-        Objectpivot.transform.parent = Cacher.cargoManager.cargoZone.transform.Find("Objects").gameObject.transform;
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
