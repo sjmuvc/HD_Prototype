@@ -13,4 +13,5 @@ public class CargoInfo : MonoBehaviour
     public float weight;
     public bool isStructed;
     public float spawnRate;
+    public string priority;
 }

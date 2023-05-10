@@ -29,6 +29,7 @@ public class DataManager : MonoBehaviour
                         Cacher.cargoManager.cargos[i].GetComponent<CargoInfo>().isStructed = false;
                     }
                     Cacher.cargoManager.cargos[i].GetComponent<CargoInfo>().spawnRate = float.Parse(csv_Data[j]["spawnRate"].ToString());
+                    Cacher.cargoManager.cargos[i].GetComponent<CargoInfo>().priority = csv_Data[j]["priority"].ToString();
                 }
             }
             

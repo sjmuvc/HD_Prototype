@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     GameManager gameManager;
     RaycastHit hitLayerMask;
@@ -326,6 +326,9 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         Cacher.uiManager.cloudPanel.ShowData(GetComponent<CargoInfo>(), false);
     }
-
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Cacher.uiManager.cloudPanel.ShowData(GetComponent<CargoInfo>(), false);
+    }
 }
 
