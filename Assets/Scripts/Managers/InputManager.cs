@@ -8,6 +8,8 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
+            Debug.Log(Cacher.cargoManager.cargoZoneObjects.Count);
+            Cacher.cargoManager.cargoZoneObjects.Add(Cacher.cargoManager.uldObjects[Cacher.cargoManager.uldObjects.Count - 1]);
             Cacher.cargoManager.RemoveAtuldObjects();
         }
 

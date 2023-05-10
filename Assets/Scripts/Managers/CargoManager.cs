@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CargoManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class CargoManager : MonoBehaviour
     public GameObject cargoZone;
     public GameObject dragObject;
 
+    public List<GameObject> cargoZoneObjects = new List<GameObject>();  
     public List<GameObject> uldObjects = new List<GameObject>();
     public int uldObjectsNum;
     int cargoIndex;
@@ -22,13 +24,12 @@ public class CargoManager : MonoBehaviour
 
     public void GenerateCargo(int cargosQuantity)
     {
-        // 컴포넌트는 destroy가 안됨
-        /*
-        for (int i = 0; i < cargoZone.transform.Find("Objects").gameObject.transform.childCount; i++)
+        for (int i = 0; i < cargoZoneObjects.Count; i++)
         {
-            Destroy(cargoZone.transform.Find("Objects").gameObject.transform.GetChild(i));
+            Destroy(cargoZoneObjects[i]);
         }
-        */
+        cargoZoneObjects.Clear();
+
         cargoIndex = 0;
         remainCargoIndex = 0;
         currentGenerateCargo = 0;
@@ -42,7 +43,8 @@ public class CargoManager : MonoBehaviour
             }
             for (int j = 0; j < Mathf.Floor((cargosQuantity * cargos[cargoIndex].GetComponent<CargoInfo>().spawnRate)); j++) 
             {
-                Instantiate(cargos[cargoIndex], cargoZone.transform);
+                Cargo newCargo = Instantiate(cargos[cargoIndex], cargoZone.transform);
+                cargoZoneObjects.Add(newCargo.gameObject);
                 currentGenerateCargo++;    
             }
             cargoIndex++;
@@ -51,7 +53,8 @@ public class CargoManager : MonoBehaviour
         // 부족한 갯수는 spawnRaterk 0인 오브젝트로 채움
         for (int i = 0; i < cargosQuantity - currentGenerateCargo; i++) 
         {
-            Instantiate(cargos[remainCargoIndex], cargoZone.transform);
+            Cargo newCargo =  Instantiate(cargos[remainCargoIndex], cargoZone.transform);
+            cargoZoneObjects.Add(newCargo.gameObject);
         }
     }
 

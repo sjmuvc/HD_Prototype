@@ -145,6 +145,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
             Objectpivot.transform.position = new Vector3(Objectpivot.transform.position.x, currentStackHeight + objectHeight / 2, Objectpivot.transform.position.z);
             rigidBody.isKinematic = false;
             Cacher.cargoManager.uldObjects.Add(this.gameObject);
+            Cacher.cargoManager.cargoZoneObjects.Remove(this.gameObject);
             Cacher.cargoManager.uldObjectsNum++;
         }
         else
