@@ -1678,7 +1678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &733128015
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1752,8 +1752,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b87943d3fe7bd45b0b3299eb486e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: {fileID: 724038567}
-  weight: {fileID: 921556440}
+  volume: 0
+  weight: 0
+  volume_txt: {fileID: 724038567}
+  weight_txt: {fileID: 921556440}
   cloudImage: {fileID: 733128014}
 --- !u!1 &741076977
 GameObject:
@@ -3163,7 +3165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3811,10 +3813,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1795248202}
-  - component: {fileID: 1795248203}
   - component: {fileID: 1795248207}
   - component: {fileID: 1795248206}
   - component: {fileID: 1795248204}
+  - component: {fileID: 1795248208}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -3838,19 +3840,6 @@ Transform:
   m_Father: {fileID: 1764767421}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1795248203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795248201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cacf01b74baab2f44acfc7fbe4960231, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
 --- !u!114 &1795248204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3895,6 +3884,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e9d02c68ceeaf42b74d0b22c8d19b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1795248208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795248201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacf01b74baab2f44acfc7fbe4960231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  cloudPanel: {fileID: 733128018}
 --- !u!1 &1841509338
 GameObject:
   m_ObjectHideFlags: 0

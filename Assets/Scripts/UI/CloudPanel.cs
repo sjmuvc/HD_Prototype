@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class CloudPanel : MonoBehaviour
 {
-    public Text volume;
-    public Text weight;
+    public float volume;
+    public float weight;
+
+    public Text volume_txt;
+    public Text weight_txt;
     public GameObject cloudImage;
 
+    /*
     RaycastHit hitLayerMask;
     float mouseRayDistance = 1000;
-
     private void Update()
     {
         if (Cacher.cargoManager.dragObject == null)
@@ -22,12 +25,23 @@ public class CloudPanel : MonoBehaviour
             int layerMask = 1 << LayerMask.NameToLayer("Cargo");
             if (Physics.Raycast(ray, out hitLayerMask, Mathf.Infinity, layerMask))
             {
+                //ShowData(RaycastHit.co)
             }
         }
     }
-    void ShowData(CargoInfo)
+    */
+    public void ShowData(CargoInfo cargoInfo)
     {
-        volume =
-        weight
+        volume = cargoInfo.volume_water;
+        weight = cargoInfo.weight;
+        volume_txt.text = ("Wavolumeter: ") + volume.ToString() + ("m©ø");
+        weight_txt.text = ("Weight: ") + weight.ToString() + ("kg");
+        cloudImage.transform.position = Cacher.uiManager.mainCamera.WorldToScreenPoint(cargoInfo.gameObject.transform.position);    
+        cloudImage.SetActive(true);
+    }
+
+    public void Close()
+    {
+        cloudImage.SetActive(false);
     }
 }

@@ -10,13 +10,11 @@ public class UIManager : MonoBehaviour
     TopPanel topPanel;
     ULDInfoPanel ULDInfoPanel;
     BottomPanel bottomPanel;
-    CloudPanel cloudPanel;
+    public CloudPanel cloudPanel;
     
 
     private void Awake()
     {
         mainCamera = Camera.main;
-
-
     }
 }

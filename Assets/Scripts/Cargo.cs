@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Cargo : MonoBehaviour, IPointerClickHandler
+public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     GameManager gameManager;
     RaycastHit hitLayerMask;
@@ -283,12 +283,12 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         }
         
     }
-
+    /*
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        //Debug.Log(name + "Game Object Clicked!");
+        Debug.Log(name + "Game Object Clicked!");
     }
-
+    */
     void SettingObjectTransform()
     {
         this.gameObject.transform.localPosition = settingPivotPosition;
@@ -317,9 +317,15 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void GenerateCargo(List<string> tmp)
+    public void OnPointerEnter(PointerEventData eventData)
     {
+        Cacher.uiManager.cloudPanel.ShowData(GetComponent<CargoInfo>());
+        Debug.Log("∆˜¿Œ≈Õ");
+    }
 
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Cacher.uiManager.cloudPanel.Close();
     }
 
 }
