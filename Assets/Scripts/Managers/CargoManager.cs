@@ -32,7 +32,7 @@ public class CargoManager : MonoBehaviour
     {
         for (int i = 0; i < cargoZoneObjects.Count; i++)
         {
-            Destroy(cargoZoneObjects[i]);
+            Destroy(cargoZoneObjects[i].GetComponent<Cargo>().Objectpivot);
         }
         cargoZoneObjects.Clear();
 
@@ -72,7 +72,7 @@ public class CargoManager : MonoBehaviour
 
     void GeneratePositioning(GameObject generatedCargo) // 나중에 Cargo로 변경하는게 좋을듯함
     {
-        //generatedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = Vector3.zero;
+        generatedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = Vector3.zero;
         if (currentCargoZoneLength + generatedCargo.GetComponent<MeshCollider>().bounds.size.x < cargoZoneLength)
         {
             generatedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = new Vector3(currentCargoZoneLength + generatedCargo.GetComponent<MeshCollider>().bounds.size.x / 2, generatedCargo.GetComponent<MeshCollider>().bounds.size.y / 2, 0);
