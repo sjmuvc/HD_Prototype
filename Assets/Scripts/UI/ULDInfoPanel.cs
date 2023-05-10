@@ -15,12 +15,14 @@ public class ULDInfoPanel : MonoBehaviour
     public void AddCargo(CargoInfo cargoInfo)
     {
         loadedWeight += cargoInfo.weight;
+        loadedCapacity_txt.text = ("적재율: ") + loadedCapacity.ToString() + ("%");
         loadedWeight_txt.text = ("총 중량: ") + loadedWeight.ToString() + ("t");
     }
 
     public void SubCargo(CargoInfo cargoInfo)
     {
         loadedWeight -= cargoInfo.weight;
+        loadedCapacity_txt.text = ("적재율: ") + loadedCapacity.ToString() + ("%");
         loadedWeight_txt.text = ("총 중량: ") + loadedWeight.ToString() + ("t");
     }
 
@@ -28,8 +30,7 @@ public class ULDInfoPanel : MonoBehaviour
     {
         loadedCapacity = 0;
         loadedWeight = 0;
-
-
+        loadedCapacity_txt.text = ("적재율: ") + loadedCapacity.ToString() + ("%");
         loadedWeight_txt.text = ("총 중량: ") + loadedWeight.ToString() + ("t");
     }
 }

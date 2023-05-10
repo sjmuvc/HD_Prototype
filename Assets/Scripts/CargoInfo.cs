@@ -8,7 +8,7 @@ public class CargoInfo : MonoBehaviour
     public float width;
     public float length;
     public float height;
-    public float volume_water;
+    public float volume_water; // ÀÌ°Å
     public float volume_square;
     public float weight;
     public bool isStructed;
