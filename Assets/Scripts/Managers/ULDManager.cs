@@ -17,6 +17,7 @@ public class ULDManager : MonoBehaviour
     public void ResetULD()
     {
         Cacher.cargoManager.GotoObjectZoneAll();
+        Cacher.uiManager.GetComponent<ULDInfoPanel>().Reset();
     }
 
     public void ChangeULD(int selectedULDNum)

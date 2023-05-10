@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
             if (Cacher.cargoManager.uldObjects.Count > 0)
             {
                 Cacher.cargoManager.cargoZoneObjects.Add(Cacher.cargoManager.uldObjects[Cacher.cargoManager.uldObjects.Count - 1]);
+                Cacher.uiManager.GetComponent<ULDInfoPanel>().SubCargo(Cacher.cargoManager.uldObjects[Cacher.cargoManager.uldObjects.Count - 1].GetComponent<CargoInfo>());
             }
             Cacher.cargoManager.RemoveAtuldObjects();
         }

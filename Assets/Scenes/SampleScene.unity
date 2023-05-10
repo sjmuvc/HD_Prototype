@@ -839,7 +839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ulds:
-  - {fileID: 5968816913162537274, guid: d8b6fe4bff6bcf0499f2ab7ff55bd7f9, type: 3}
+  - {fileID: 3879305486877941426, guid: d8b6fe4bff6bcf0499f2ab7ff55bd7f9, type: 3}
   - {fileID: 5229913074415271, guid: b33238f3498183049a150eb82b67debd, type: 3}
   currentULD: {fileID: 0}
 --- !u!1 &224391725
@@ -1035,7 +1035,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973627610}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1075,7 +1075,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uCD1D \uC911\uB7C9:"
+  m_Text: "\uCD1D \uC911\uB7C9: 0t"
 --- !u!222 &378538406
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2144,8 +2144,8 @@ RectTransform:
   m_LocalScale: {x: 5.34, y: 0.7315547, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 378538404}
   - {fileID: 1574552685}
+  - {fileID: 378538404}
   m_Father: {fileID: 1571569187}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2918,7 +2918,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973627610}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2958,7 +2958,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uC801\uC7AC\uC728:"
+  m_Text: "\uC801\uC7AC\uC728: 0%"
 --- !u!222 &1574552687
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3522,6 +3522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadedCapacity: 0
   loadedWeight: 0
+  loadedCapacity_txt: {fileID: 1574552686}
+  loadedWeight_txt: {fileID: 378538405}
 --- !u!114 &1795248207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3691,7 +3693,6 @@ MonoBehaviour:
   dragObject: {fileID: 0}
   cargoZoneObjects: []
   uldObjects: []
-  uldObjectsNum: 0
 --- !u!1 &1946955527
 GameObject:
   m_ObjectHideFlags: 0

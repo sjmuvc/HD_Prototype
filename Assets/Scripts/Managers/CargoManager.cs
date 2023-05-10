@@ -19,7 +19,6 @@ public class CargoManager : MonoBehaviour
 
     public List<GameObject> cargoZoneObjects = new List<GameObject>();  
     public List<GameObject> uldObjects = new List<GameObject>();
-    public int uldObjectsNum;
     int cargoIndex;
     int remainCargoIndex;
     int currentGenerateCargo;
@@ -102,27 +101,25 @@ public class CargoManager : MonoBehaviour
 
     public void RemoveAtuldObjects()
     {
-        if (uldObjectsNum - 1 >= 0)
+        if (uldObjects.Count - 1 >= 0)
         {
-            uldObjects[uldObjectsNum - 1].GetComponent<Cargo>().GotoCargoZone();
-            uldObjects.RemoveAt(uldObjectsNum - 1);
-            uldObjectsNum--;
+            uldObjects[uldObjects.Count - 1].GetComponent<Cargo>().GotoCargoZone();
+            uldObjects.RemoveAt(uldObjects.Count - 1);
         }
     }
 
     public void GotoObjectZoneAll()
     {
-        for(int i = 0; i < uldObjectsNum; i++)
+        for(int i = 0; i < uldObjects.Count; i++)
         {
             uldObjects[i].GetComponent<Cargo>().GotoCargoZone();
         }
         uldObjects.Clear();
-        uldObjectsNum = 0;
     }
 
     public void AllFreeze(bool freeze)
     {
-        for (int i = 0; i < uldObjectsNum; i++)
+        for (int i = 0; i < uldObjects.Count; i++)
         {
             if (freeze)
             {

@@ -147,7 +147,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
             rigidBody.isKinematic = false;
             Cacher.cargoManager.uldObjects.Add(this.gameObject);
             Cacher.cargoManager.cargoZoneObjects.Remove(this.gameObject);
-            Cacher.cargoManager.uldObjectsNum++;
+            Cacher.uiManager.GetComponent<ULDInfoPanel>().AddCargo(GetComponent<CargoInfo>());
         }
         else
         {
