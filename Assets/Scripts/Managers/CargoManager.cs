@@ -9,6 +9,9 @@ public class CargoManager : MonoBehaviour
 
     public GameObject cargoZone;
     public GameObject dragObject;
+    float cargoZoneLength;
+    float currentCargoZoneLength;
+    GameObject lastCargoZoneObject;
 
     public List<GameObject> cargoZoneObjects = new List<GameObject>();  
     public List<GameObject> uldObjects = new List<GameObject>();
@@ -20,6 +23,7 @@ public class CargoManager : MonoBehaviour
     private void Awake()
     {
         cargoZone = GameObject.Find("CargoZone");
+        cargoZoneLength = cargoZone.GetComponent<MeshCollider>().bounds.size.x;
     }
 
     public void GenerateCargo(int cargosQuantity)
@@ -44,8 +48,10 @@ public class CargoManager : MonoBehaviour
             for (int j = 0; j < Mathf.Floor((cargosQuantity * cargos[cargoIndex].GetComponent<CargoInfo>().spawnRate)); j++) 
             {
                 Cargo generatedCargo = Instantiate(cargos[cargoIndex], cargoZone.transform);
+                lastCargoZoneObject = generatedCargo.gameObject;
                 cargoZoneObjects.Add(generatedCargo.gameObject);
                 currentGenerateCargo++;
+                generatedCargo.GetComponent<Cargo>().GenerateSetting();
                 GeneratePositioning(generatedCargo.gameObject);
             }
             cargoIndex++;
@@ -56,14 +62,22 @@ public class CargoManager : MonoBehaviour
         {
             Cargo generatedCargo =  Instantiate(cargos[remainCargoIndex], cargoZone.transform);
             cargoZoneObjects.Add(generatedCargo.gameObject);
+            generatedCargo.GetComponent<Cargo>().GenerateSetting();
             GeneratePositioning(generatedCargo.gameObject);
         }
     }
 
     void GeneratePositioning(GameObject generatedCargo)
     {
-        generatedCargo.GetComponent<Cargo>().GenerateSetting();
         generatedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = Vector3.zero;
+        if (currentCargoZoneLength + lastCargoZoneObject.GetComponent<MeshCollider>().bounds.size.x < cargoZoneLength)
+        {
+            currentCargoZoneLength += lastCargoZoneObject.GetComponent<MeshCollider>().bounds.size.x;
+        }
+        else
+        {
+            currentCargoZoneLength = lastCargoZoneObject.GetComponent<MeshCollider>().bounds.size.x;
+        }
     }
 
     public void RemoveAtuldObjects()
