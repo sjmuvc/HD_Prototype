@@ -19,6 +19,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     Material virtualObjectOriginMat;
     MeshCollider meshCollider;
     Vector3 startPosition;
+    Vector3 startLocalEulerAngles;
 
     float cameraToObjectDistance = 20;
     float mouseRayDistance = 1000;
@@ -50,6 +51,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         Objectpivot = new GameObject();
         Objectpivot.transform.position = pivot;
         startPosition = Objectpivot.transform.position;
+        startLocalEulerAngles = Objectpivot.transform.localEulerAngles;
         this.transform.parent = Objectpivot.transform;
         settingPivotPosition = this.transform.localPosition;
         settingPivotRotation = this.transform.localEulerAngles;
@@ -269,6 +271,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     {
         SettingObjectTransform();
         Objectpivot.transform.position = startPosition;
+        Objectpivot.transform.localEulerAngles = startLocalEulerAngles;
         Objectpivot.transform.parent = Cacher.cargoManager.cargoZone.transform.Find("Objects").gameObject.transform;
     }
 

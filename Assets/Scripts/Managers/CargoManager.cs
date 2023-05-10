@@ -68,7 +68,7 @@ public class CargoManager : MonoBehaviour
         }
     }
 
-    void CargoZonePositioning(GameObject addedCargo) // 나중에 Cargo로 변경하는게 좋을듯함
+    void CargoZonePositioning(GameObject addedCargo)
     {
         addedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = Vector3.zero;
         if (currentCargoZoneLength + addedCargo.GetComponent<MeshCollider>().bounds.size.x < cargoZoneLength)
