@@ -10,8 +10,12 @@ public class CargoManager : MonoBehaviour
     public GameObject cargoZone;
     public GameObject cargoZonePlane;
     public GameObject dragObject;
-    float cargoZoneLength;
-    float currentCargoZoneLength;
+    float cargoZoneLength_X;
+    float cargoZoneLength_Z;
+    float currentCargoZoneLength_X;
+    float currentCargoZoneLength_Z;
+    float longestAxis_Z;
+    float axisSpacing_Z;
 
     public List<GameObject> cargoZoneObjects = new List<GameObject>();  
     public List<GameObject> uldObjects = new List<GameObject>();
@@ -24,7 +28,8 @@ public class CargoManager : MonoBehaviour
     {
         cargoZone = GameObject.Find("CargoZone");
         cargoZonePlane = GameObject.Find("CargoZonePlane");
-        cargoZoneLength = cargoZonePlane.GetComponent<MeshCollider>().bounds.size.x;
+        cargoZoneLength_X = cargoZonePlane.GetComponent<MeshCollider>().bounds.size.x;
+        cargoZoneLength_Z = cargoZonePlane.GetComponent<MeshCollider>().bounds.size.z;
     }
 
     public void GenerateCargo(int cargosQuantity)
@@ -38,7 +43,10 @@ public class CargoManager : MonoBehaviour
         cargoIndex = 0;
         remainCargoIndex = 0;
         currentGenerateCargo = 0;
-        currentCargoZoneLength = 0;
+        currentCargoZoneLength_X = 0;
+        currentCargoZoneLength_Z = 0;
+        longestAxis_Z = 0;
+        axisSpacing_Z = 0;
 
         // spawnRate만큼 갯수 생성
         for (int i = 0; i < cargos.Length; i++)
@@ -71,15 +79,24 @@ public class CargoManager : MonoBehaviour
     void CargoZonePositioning(GameObject addedCargo)
     {
         addedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = Vector3.zero;
-        if (currentCargoZoneLength + addedCargo.GetComponent<MeshCollider>().bounds.size.x < cargoZoneLength)
+        if (currentCargoZoneLength_X + addedCargo.GetComponent<MeshCollider>().bounds.size.x < cargoZoneLength_X)
         {
-            addedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = new Vector3(currentCargoZoneLength + addedCargo.GetComponent<MeshCollider>().bounds.size.x / 2, addedCargo.GetComponent<MeshCollider>().bounds.size.y / 2, 0);
-            currentCargoZoneLength += addedCargo.GetComponent<MeshCollider>().bounds.size.x;
+            addedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = new Vector3(currentCargoZoneLength_X + addedCargo.GetComponent<MeshCollider>().bounds.size.x / 2, addedCargo.GetComponent<MeshCollider>().bounds.size.y / 2, -axisSpacing_Z);
+            currentCargoZoneLength_X += addedCargo.GetComponent<MeshCollider>().bounds.size.x;
         }
         else
         {
-            currentCargoZoneLength = 0;
-        }
+            // CargoZone의 오브젝트중 가장 긴 Z축의 값을 Z축 간격으로 설정
+            for (int i = 0; i < cargoZoneObjects.Count; i++)
+            {
+                if (longestAxis_Z < cargoZoneObjects[i].gameObject.GetComponent<MeshCollider>().bounds.size.z)
+                {
+                    longestAxis_Z = cargoZoneObjects[i].gameObject.GetComponent<MeshCollider>().bounds.size.z;
+                }
+            }
+            axisSpacing_Z += longestAxis_Z;
+            currentCargoZoneLength_X = 0;
+        }     
     }
 
     public void RemoveAtuldObjects()
