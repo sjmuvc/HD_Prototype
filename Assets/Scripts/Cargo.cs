@@ -152,7 +152,6 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         else
         {
             GotoCargoZone();
-            Debug.Log(startPosition);
         }
         Simulation(false);
         Cacher.cargoManager.AllFreeze(false);
@@ -164,7 +163,6 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         Cacher.cargoManager.dragObject = Objectpivot;
         SettingObjectTransform();
         rigidBody.isKinematic = true;
-        Debug.Log(startPosition);
     }
 
     void DrawVirtualObject(bool active)

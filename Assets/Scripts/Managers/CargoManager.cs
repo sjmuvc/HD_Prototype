@@ -71,7 +71,7 @@ public class CargoManager : MonoBehaviour
         // 부족한 갯수는 spawnRate가 0인 오브젝트로 채움
         for (int i = 0; i < cargosQuantity - currentGenerateCargo; i++) 
         {
-            Cargo generatedCargo =  Instantiate(cargos[remainCargoIndex], cargoZone.transform);
+            Cargo generatedCargo = Instantiate(cargos[remainCargoIndex], cargoZone.transform);
             cargoZoneObjects.Add(generatedCargo.gameObject);
             generatedCargo.GetComponent<Cargo>().GenerateSetting();
             CargoZonePositioning(generatedCargo.gameObject);
