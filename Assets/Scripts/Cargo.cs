@@ -319,13 +319,12 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Cacher.uiManager.cloudPanel.ShowData(GetComponent<CargoInfo>());
-        Debug.Log("∆˜¿Œ≈Õ");
+        Cacher.uiManager.cloudPanel.ShowData(GetComponent<CargoInfo>(), true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Cacher.uiManager.cloudPanel.Close();
+        Cacher.uiManager.cloudPanel.ShowData(GetComponent<CargoInfo>(), false);
     }
 
 }

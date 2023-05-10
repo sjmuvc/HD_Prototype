@@ -7,41 +7,21 @@ public class CloudPanel : MonoBehaviour
 {
     public float volume;
     public float weight;
-
     public Text volume_txt;
     public Text weight_txt;
     public GameObject cloudImage;
 
-    /*
-    RaycastHit hitLayerMask;
-    float mouseRayDistance = 1000;
-    private void Update()
+
+    public void ShowData(CargoInfo cargoInfo, bool active)
     {
-        if (Cacher.cargoManager.dragObject == null)
+        if (active)
         {
-            Ray ray = Cacher.uiManager.mainCamera.ScreenPointToRay(Input.mousePosition);
-            Debug.DrawRay(ray.origin, ray.direction * mouseRayDistance, Color.red);
-
-            int layerMask = 1 << LayerMask.NameToLayer("Cargo");
-            if (Physics.Raycast(ray, out hitLayerMask, Mathf.Infinity, layerMask))
-            {
-                //ShowData(RaycastHit.co)
-            }
+            volume = cargoInfo.volume_water;
+            weight = cargoInfo.weight;
+            volume_txt.text = ("Wavolumeter: ") + volume.ToString() + ("m©ø");
+            weight_txt.text = ("Weight: ") + weight.ToString() + ("kg");
+            cloudImage.transform.position = Cacher.uiManager.mainCamera.WorldToScreenPoint(cargoInfo.GetComponent<Cargo>().Objectpivot.transform.position + new Vector3(0, 1.5f, 0));
         }
-    }
-    */
-    public void ShowData(CargoInfo cargoInfo)
-    {
-        volume = cargoInfo.volume_water;
-        weight = cargoInfo.weight;
-        volume_txt.text = ("Wavolumeter: ") + volume.ToString() + ("m©ø");
-        weight_txt.text = ("Weight: ") + weight.ToString() + ("kg");
-        cloudImage.transform.position = Cacher.uiManager.mainCamera.WorldToScreenPoint(cargoInfo.gameObject.transform.position);    
-        cloudImage.SetActive(true);
-    }
-
-    public void Close()
-    {
-        cloudImage.SetActive(false);
+        cloudImage.SetActive(active);
     }
 }
