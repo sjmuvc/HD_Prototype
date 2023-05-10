@@ -520,6 +520,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!1 &154773298
 GameObject:
@@ -667,6 +669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!1 &196626306
 GameObject:
@@ -1354,6 +1358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!1 &579225945
 GameObject:
@@ -1728,6 +1734,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!1 &845486456
 GameObject:
@@ -2139,6 +2147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!1 &1001270122
 GameObject:
@@ -3013,6 +3023,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!1 &1764767420
 GameObject:
@@ -3176,6 +3188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!1 &1795248201
 GameObject:
@@ -3552,6 +3566,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!1 &2040984734
 GameObject:
@@ -5957,6 +5973,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!4 &6462652744549609706
 Transform:
@@ -6065,6 +6083,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!1 &6685873862172254366
 GameObject:
@@ -6305,6 +6325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!23 &6972654725549374056
 MeshRenderer:
@@ -6431,6 +6453,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!1 &7309278432625563887
 GameObject:
@@ -6887,6 +6911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!33 &8465366129036157733
 MeshFilter:
@@ -6938,6 +6964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!1 &8487719093056435692
 GameObject:
@@ -7129,6 +7157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!33 &8739588007993927407
 MeshFilter:
@@ -7270,6 +7300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objectpivot: {fileID: 0}
+  startPosition: {x: 0, y: 0, z: 0}
+  startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
 --- !u!23 &9028531203315405905
 MeshRenderer:

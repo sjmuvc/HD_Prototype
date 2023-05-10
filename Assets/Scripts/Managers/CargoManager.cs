@@ -62,6 +62,8 @@ public class CargoManager : MonoBehaviour
                 currentGenerateCargo++;
                 generatedCargo.GetComponent<Cargo>().GenerateSetting();
                 CargoZonePositioning(generatedCargo.gameObject);
+                generatedCargo.startPosition = generatedCargo.Objectpivot.transform.localPosition;
+                generatedCargo.startLocalEulerAngles = generatedCargo.Objectpivot.transform.localEulerAngles;
             }
             cargoIndex++;
         }
@@ -73,6 +75,8 @@ public class CargoManager : MonoBehaviour
             cargoZoneObjects.Add(generatedCargo.gameObject);
             generatedCargo.GetComponent<Cargo>().GenerateSetting();
             CargoZonePositioning(generatedCargo.gameObject);
+            generatedCargo.startPosition = generatedCargo.Objectpivot.transform.localPosition;
+            generatedCargo.startLocalEulerAngles = generatedCargo.Objectpivot.transform.localEulerAngles;
         }
     }
 

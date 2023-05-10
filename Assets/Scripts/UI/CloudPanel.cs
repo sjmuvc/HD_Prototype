@@ -22,7 +22,7 @@ public class CloudPanel : MonoBehaviour
             int layerMask = 1 << LayerMask.NameToLayer("Cargo");
             if (Physics.Raycast(ray, out hitLayerMask, Mathf.Infinity, layerMask))
             {
-                Debug.Log("Cloud UI 剁况林扁");
+                //Debug.Log("Cloud UI 剁况林扁");
             }
         }
     }

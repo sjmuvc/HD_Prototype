@@ -18,8 +18,8 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     LineRenderer lineRenderer;
     Material virtualObjectOriginMat;
     MeshCollider meshCollider;
-    Vector3 startPosition;
-    Vector3 startLocalEulerAngles;
+    public Vector3 startPosition;
+    public Vector3 startLocalEulerAngles;
 
     float cameraToObjectDistance = 20;
     float mouseRayDistance = 1000;
@@ -50,8 +50,6 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         pivot = GetComponent<MeshCollider>().bounds.center;
         Objectpivot = new GameObject();
         Objectpivot.transform.position = pivot;
-        startPosition = Objectpivot.transform.localPosition;
-        startLocalEulerAngles = Objectpivot.transform.localEulerAngles;
         this.transform.parent = Objectpivot.transform;
         settingPivotPosition = this.transform.localPosition;
         settingPivotRotation = this.transform.localEulerAngles;
@@ -70,7 +68,8 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         virtualObject.transform.GetChild(0).gameObject.GetComponent<VirtualObjectTrigger>().cargoManager = this.GetComponent<Cargo>();
         virtualObject.SetActive(false);
 
-        GotoCargoZone();
+        SettingObjectTransform();
+        Objectpivot.transform.parent = Cacher.cargoManager.cargoZone.transform.Find("Objects").gameObject.transform;
     }
 
     void AddComponenet()
@@ -153,6 +152,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         else
         {
             GotoCargoZone();
+            Debug.Log(startPosition);
         }
         Simulation(false);
         Cacher.cargoManager.AllFreeze(false);
@@ -164,6 +164,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         Cacher.cargoManager.dragObject = Objectpivot;
         SettingObjectTransform();
         rigidBody.isKinematic = true;
+        Debug.Log(startPosition);
     }
 
     void DrawVirtualObject(bool active)
@@ -272,7 +273,6 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
         SettingObjectTransform();
         Objectpivot.transform.parent = Cacher.cargoManager.cargoZone.transform.Find("Objects").gameObject.transform;
         // uld 안에 있었을 경우 CargoZonePositioning 방식 적용
-        /*
         if (Cacher.cargoManager.uldObjects.Contains(this.gameObject))
         {
             Cacher.cargoManager.CargoZonePositioning(this.gameObject);
@@ -282,9 +282,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
             Objectpivot.transform.localPosition = startPosition;
             Objectpivot.transform.localEulerAngles = startLocalEulerAngles;
         }
-        */
-        Objectpivot.transform.localPosition = startPosition;
-        Objectpivot.transform.localEulerAngles = startLocalEulerAngles;
+        
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
