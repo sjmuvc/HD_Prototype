@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class CloudPanel : MonoBehaviour
 {
-    public TextField volume;
-    public TextField weight;
-    public Image cloudImage;
+    public Text volume;
+    public Text weight;
+    public GameObject cloudImage;
 
     RaycastHit hitLayerMask;
     float mouseRayDistance = 1000;
@@ -22,12 +22,12 @@ public class CloudPanel : MonoBehaviour
             int layerMask = 1 << LayerMask.NameToLayer("Cargo");
             if (Physics.Raycast(ray, out hitLayerMask, Mathf.Infinity, layerMask))
             {
-                //Debug.Log("Cloud UI ¶ç¿öÁÖ±â");
             }
         }
     }
-    void ShowData(string volume, string weight)
+    void ShowData(CargoInfo)
     {
-
+        volume =
+        weight
     }
 }
