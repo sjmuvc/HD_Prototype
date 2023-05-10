@@ -23,6 +23,6 @@ public class CloudPanel : MonoBehaviour
             weight_txt.text = ("Weight: ") + weight.ToString() + ("kg");
             cloudImage.transform.position = Cacher.uiManager.mainCamera.WorldToScreenPoint(cargoInfo.GetComponent<Cargo>().Objectpivot.transform.position + new Vector3(0, cloudHeight, 0));
         }
-        cloudImage.SetActive(active);
+        cloudImage.SetActive(true);
     }
 }
