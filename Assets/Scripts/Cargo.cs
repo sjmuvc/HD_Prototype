@@ -36,7 +36,7 @@ public class Cargo : MonoBehaviour, IPointerClickHandler
     bool isEnableStack;
     int layerName;
 
-    private void Start()
+    public void GenerateSetting()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         this.gameObject.tag = "StackObject";

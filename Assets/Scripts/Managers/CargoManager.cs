@@ -43,9 +43,10 @@ public class CargoManager : MonoBehaviour
             }
             for (int j = 0; j < Mathf.Floor((cargosQuantity * cargos[cargoIndex].GetComponent<CargoInfo>().spawnRate)); j++) 
             {
-                Cargo newCargo = Instantiate(cargos[cargoIndex], cargoZone.transform);
-                cargoZoneObjects.Add(newCargo.gameObject);
-                currentGenerateCargo++;    
+                Cargo generatedCargo = Instantiate(cargos[cargoIndex], cargoZone.transform);
+                cargoZoneObjects.Add(generatedCargo.gameObject);
+                currentGenerateCargo++;
+                GeneratePositioning(generatedCargo.gameObject);
             }
             cargoIndex++;
         }
@@ -53,9 +54,16 @@ public class CargoManager : MonoBehaviour
         // 부족한 갯수는 spawnRaterk 0인 오브젝트로 채움
         for (int i = 0; i < cargosQuantity - currentGenerateCargo; i++) 
         {
-            Cargo newCargo =  Instantiate(cargos[remainCargoIndex], cargoZone.transform);
-            cargoZoneObjects.Add(newCargo.gameObject);
+            Cargo generatedCargo =  Instantiate(cargos[remainCargoIndex], cargoZone.transform);
+            cargoZoneObjects.Add(generatedCargo.gameObject);
+            GeneratePositioning(generatedCargo.gameObject);
         }
+    }
+
+    void GeneratePositioning(GameObject generatedCargo)
+    {
+        generatedCargo.GetComponent<Cargo>().GenerateSetting();
+        generatedCargo.GetComponent<Cargo>().Objectpivot.transform.localPosition = Vector3.zero;
     }
 
     public void RemoveAtuldObjects()
