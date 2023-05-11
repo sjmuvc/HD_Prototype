@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class VirtualObjectTrigger : MonoBehaviour
 {
-    public DragAndMove dragAndMove;
+    public Cargo cargoManager;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            dragAndMove.isEnableStack = false;
-            Debug.Log("´êÀ½");
+            cargoManager.isInsideTheWall = false;
+            //Debug.Log("Enter");
         }
     }
 
@@ -20,8 +20,8 @@ public class VirtualObjectTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            dragAndMove.isEnableStack = true;
-            Debug.Log("¶³¾îÁü");
+            cargoManager.isInsideTheWall = true;
+            //Debug.Log("Exit");
         }
     }
 }

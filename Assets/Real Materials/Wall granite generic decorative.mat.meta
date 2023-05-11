@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 6ac571a72bd598c40bcd9f04de2e9139
+labels:
+- PBR
+- material
+- texture
+- wall
+- granite
+- tiles
+- generic
+- ordinary
+- common
+- dusty
+- matte
+- stone
+- tile
+- mat
+- exterior
+timeCreated: 1453809646
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
