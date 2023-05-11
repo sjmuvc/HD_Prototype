@@ -25,7 +25,6 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     float cameraToObjectDistance = 20;
     float mouseRayDistance = 1000;
     bool isOnVirtualPlane = false;
-    float rotateValue = 10;
     float currentStackHeight;
     public bool isInsideTheWall = true;
     float lineWidth = .05f;
@@ -105,12 +104,10 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         Vector3 worldMousePos = Cacher.uiManager.mainCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cameraToObjectDistance)); // 카메라로부터 거리값
         Objectpivot.transform.position = worldMousePos;
         Cacher.cargoManager.AllFreeze(true);
+        Cacher.inputManager.InPutRotate(Objectpivot);
         RayPositioning(worldMousePos);
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Objectpivot.transform.localEulerAngles = new Vector3(Objectpivot.transform.localEulerAngles.x, Objectpivot.transform.localEulerAngles.y + rotateValue, Objectpivot.transform.localEulerAngles.z);
-        }
+        
     }
 
     void RayPositioning(Vector3 worldMousePos)
@@ -258,24 +255,24 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
             {
                 virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = virtualObjectOriginMat;
                 
-
+                /*
                 foreach( var item in virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials)
                 {
                     item.color = Color.green;
                 }
-
+                */
                 isEnableStack = true;
             }
             else
             {
                 virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = gameManager.redMaterial;
 
-
+                /*
                 foreach (var item in virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials)
                 {
                     item.color = Color.red;
                 }
-
+                */
                 isEnableStack = false;
             }
         }
@@ -297,12 +294,7 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         }
         
     }
-    /*
-    public void OnPointerClick(PointerEventData pointerEventData)
-    {
-        Debug.Log(name + "Game Object Clicked!");
-    }
-    */
+
     void SettingObjectTransform()
     {
         this.gameObject.transform.localPosition = settingPivotPosition;
