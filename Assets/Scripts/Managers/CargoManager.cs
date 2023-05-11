@@ -33,6 +33,10 @@ public class CargoManager : MonoBehaviour
 
     public void GenerateCargo(int cargosQuantity)
     {
+        for (int i = 0; i < uldObjects.Count; i++)
+        {
+            uldObjects[i].GetComponent<Cargo>().isPreviousCargo = true;
+        }
         for (int i = 0; i < cargoZoneObjects.Count; i++)
         {
             Destroy(cargoZoneObjects[i].GetComponent<Cargo>().Objectpivot);
@@ -112,8 +116,10 @@ public class CargoManager : MonoBehaviour
     {
         for(int i = 0; i < uldObjects.Count; i++)
         {
+            uldObjects[i].GetComponent<Cargo>().isPreviousCargo = true;
             uldObjects[i].GetComponent<Cargo>().GotoCargoZone();
             Cacher.cargoManager.cargoZoneObjects.Add(uldObjects[i]);
+            
         }
         uldObjects.Clear();
     }

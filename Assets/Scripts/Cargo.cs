@@ -36,6 +36,7 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     bool isSimulationOn;
     bool isEnableStack;
     int layerName;
+    public bool isPreviousCargo = false;
 
     public void GenerateSetting()
     {
@@ -283,7 +284,7 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         SettingObjectTransform();
         Objectpivot.transform.parent = Cacher.cargoManager.cargoZone.transform.Find("Objects").gameObject.transform;
         // uld 안에 있었을 경우 CargoZonePositioning 방식 적용
-        if (Cacher.cargoManager.uldObjects.Contains(this.gameObject))
+        if (Cacher.cargoManager.uldObjects.Contains(this.gameObject) || isPreviousCargo == true)
         {
             Cacher.cargoManager.CargoZonePositioning(this.gameObject);
         }

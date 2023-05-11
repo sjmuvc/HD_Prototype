@@ -7,7 +7,6 @@ public class ULDManager : MonoBehaviour
     public ULD[] ulds;
     public ULD currentULD;
 
-
     private void Awake() 
     {
         currentULD = GameObject.FindGameObjectWithTag("ULD").GetComponent<ULD>();
