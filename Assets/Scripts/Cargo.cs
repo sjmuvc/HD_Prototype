@@ -254,26 +254,34 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         {
             if (enable)
             {
-                virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = virtualObjectOriginMat;
-                
-                /*
-                foreach( var item in virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials)
+                //virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = virtualObjectOriginMat;
+                foreach (var item in virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials)
                 {
                     item.color = Color.green;
                 }
-                */
+                for (int i = 0; i < this.transform.childCount; i++)
+                {
+                    foreach (var item in virtualObject.transform.GetChild(0).GetChild(i).GetComponent<MeshRenderer>().materials)
+                    {
+                        item.color = Color.green;
+                    }
+                }
                 isEnableStack = true;
             }
             else
             {
-                virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = gameManager.redMaterial;
-
-                /*
+                //virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = gameManager.redMaterial;
                 foreach (var item in virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials)
                 {
                     item.color = Color.red;
                 }
-                */
+                for (int i = 0; i < this.transform.childCount; i++)
+                {
+                    foreach (var item in virtualObject.transform.GetChild(0).GetChild(i).GetComponent<MeshRenderer>().materials)
+                    {
+                        item.color = Color.red;
+                    }
+                }
                 isEnableStack = false;
             }
         }
