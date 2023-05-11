@@ -8,6 +8,7 @@ using System;
 public class ULDInfoPanel : MonoBehaviour
 {
     public float loadedCapacity;
+    float total_Volume_water;
     public float loadedWeight;
 
     public TMP_Text loadedCapacity_txt;
@@ -15,7 +16,8 @@ public class ULDInfoPanel : MonoBehaviour
 
     public void AddCargo(CargoInfo cargoInfo)
     {
-        loadedCapacity += cargoInfo.volume_water / Cacher.uldManager.currentULD.volume * 100;
+        total_Volume_water += cargoInfo.volume_water;
+        loadedCapacity = total_Volume_water / Cacher.uldManager.currentULD.volume * 100;
         loadedWeight += cargoInfo.weight;
         loadedCapacity_txt.text = ("적재율: ") + Math.Round(loadedCapacity, 2).ToString() + ("%");
         loadedWeight_txt.text = ("총 중량: ") + loadedWeight.ToString() + ("kg");
@@ -23,7 +25,8 @@ public class ULDInfoPanel : MonoBehaviour
 
     public void SubCargo(CargoInfo cargoInfo)
     {
-        loadedCapacity -= cargoInfo.volume_water / Cacher.uldManager.currentULD.volume * 100;
+        total_Volume_water -= cargoInfo.volume_water;
+        loadedCapacity = total_Volume_water / Cacher.uldManager.currentULD.volume * 100;
         loadedWeight -= cargoInfo.weight;
         loadedCapacity_txt.text = ("적재율: ") + Math.Round(loadedCapacity, 2).ToString() + ("%");
         loadedWeight_txt.text = ("총 중량: ") + loadedWeight.ToString() + ("kg");
@@ -31,9 +34,10 @@ public class ULDInfoPanel : MonoBehaviour
 
     public void Reset()
     {
-        loadedCapacity = 0;
+        total_Volume_water = 0;
+        loadedCapacity = total_Volume_water / Cacher.uldManager.currentULD.volume * 100;
         loadedWeight = 0;
-        loadedCapacity_txt.text = ("적재율: ") + loadedCapacity.ToString() + ("%");
+        loadedCapacity_txt.text = ("적재율: ") + Math.Round(loadedCapacity, 2).ToString() + ("%");
         loadedWeight_txt.text = ("총 중량: ") + loadedWeight.ToString() + ("kg");
     }
 }

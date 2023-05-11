@@ -22,9 +22,9 @@ public class ULDManager : MonoBehaviour
 
     public void ChangeULD(int selectedULDNum)
     {
-        ResetULD();
         Destroy(currentULD.gameObject);
         currentULD = Instantiate(ulds[selectedULDNum]); // »õ uld »ý¼º
         currentULD.Initialize();
+        ResetULD();
     }
 }

@@ -16,24 +16,24 @@ public class BottomPanel : MonoBehaviour
 
     private void Awake()
     {
-        btn_SCB1.onClick.AddListener(OnClickButton_SCB1);
-        btn_SCB2.onClick.AddListener(OnClickButton_SCB2);
+        btn_SCB1.onClick.AddListener(OnClickButton_SCA);
+        btn_SCB2.onClick.AddListener(OnClickButton_SCB);
         btn_SpawnCargo.onClick.AddListener(OnClickButton_SpawnCargo);
     }
 
-    void OnClickButton_SCB1()
+    public void OnClickButton_SCA()
     {
         int num = 0;
         Cacher.uldManager.ChangeULD(num);
     }
 
-    void OnClickButton_SCB2()
+    public void OnClickButton_SCB()
     {
         int num = 1;
         Cacher.uldManager.ChangeULD(num);
     }
 
-    void OnClickButton_SpawnCargo()
+    public void OnClickButton_SpawnCargo()
     {
         Cacher.cargoManager.GenerateCargo(ParseQuantity(inputField_Quantity));
     }

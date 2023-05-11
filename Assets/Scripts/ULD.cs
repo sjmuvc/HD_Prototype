@@ -30,11 +30,11 @@ public class ULD : MonoBehaviour
 
     void SetVolume()
     {
-        if(this.gameObject.name == "SCA")
+        if (this.gameObject.name == "SCA" || this.gameObject.name == "SCA(Clone)") 
         {
             volume = 19.5f;
         }
-        else if (this.gameObject.name == "SCB")
+        else if (this.gameObject.name == "SCB" || this.gameObject.name == "SCB(Clone)")
         {
             volume = 17.7f;
         }
