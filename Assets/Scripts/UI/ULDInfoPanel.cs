@@ -10,8 +10,8 @@ public class ULDInfoPanel : MonoBehaviour
     public float loadedCapacity;
     public float loadedWeight;
 
-    public Text loadedCapacity_txt;
-    public Text loadedWeight_txt;
+    public TMP_Text loadedCapacity_txt;
+    public TMP_Text loadedWeight_txt;
 
     public void AddCargo(CargoInfo cargoInfo)
     {

@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using static UnityEngine.Rendering.PostProcessing.SubpixelMorphologicalAntialiasing;
 
 public class BottomPanel : MonoBehaviour
 {
     public Button btn_SCB1;
     public Button btn_SCB2;
+    public TMP_InputField inputField_Quantity;
     public Button btn_SpawnCargo;
-    public InputField inputField_Quantity;
 
     int maxInputQuantity = 100;
 
@@ -37,7 +38,7 @@ public class BottomPanel : MonoBehaviour
         Cacher.cargoManager.GenerateCargo(ParseQuantity(inputField_Quantity));
     }
 
-    int ParseQuantity(InputField inputQuantity)
+    int ParseQuantity(TMP_InputField inputQuantity)
     {
         if(inputQuantity != null)
         {
@@ -50,7 +51,7 @@ public class BottomPanel : MonoBehaviour
             {
                 quantity = 0;
             }
-            inputField_Quantity.GetComponent<InputField>().text = quantity.ToString();
+            inputField_Quantity.GetComponent<TMP_InputField>().text = quantity.ToString();
             return quantity;
         }
         else
