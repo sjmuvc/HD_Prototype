@@ -257,11 +257,25 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
             if (enable)
             {
                 virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = virtualObjectOriginMat;
+                
+
+                foreach( var item in virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials)
+                {
+                    item.color = Color.green;
+                }
+
                 isEnableStack = true;
             }
             else
             {
                 virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().material = gameManager.redMaterial;
+
+
+                foreach (var item in virtualObject.transform.GetChild(0).GetComponent<MeshRenderer>().materials)
+                {
+                    item.color = Color.red;
+                }
+
                 isEnableStack = false;
             }
         }
@@ -320,6 +334,7 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     public void OnPointerEnter(PointerEventData eventData)
     {
         Cacher.uiManager.cloudPanel.ShowData(GetComponent<CargoInfo>(), true);
+        
     }
 
     public void OnPointerExit(PointerEventData eventData)
