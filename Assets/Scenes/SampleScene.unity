@@ -856,7 +856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ulds:
   - {fileID: 5769382363572795641, guid: d8b6fe4bff6bcf0499f2ab7ff55bd7f9, type: 3}
-  - {fileID: 5229913074415271, guid: b33238f3498183049a150eb82b67debd, type: 3}
+  - {fileID: 230733791642354177, guid: b33238f3498183049a150eb82b67debd, type: 3}
   currentULD: {fileID: 0}
 --- !u!1 &224391725
 GameObject:
@@ -6178,6 +6178,10 @@ PrefabInstance:
     - target: {fileID: 2895339491169815744, guid: d8b6fe4bff6bcf0499f2ab7ff55bd7f9, type: 3}
       propertyPath: m_Name
       value: SCA
+      objectReference: {fileID: 0}
+    - target: {fileID: 2895339491169815744, guid: d8b6fe4bff6bcf0499f2ab7ff55bd7f9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2895339491169815745, guid: d8b6fe4bff6bcf0499f2ab7ff55bd7f9, type: 3}
       propertyPath: m_RootOrder
