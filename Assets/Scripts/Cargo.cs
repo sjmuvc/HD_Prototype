@@ -8,7 +8,7 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
 {
     GameManager gameManager;
     RaycastHit hitLayerMask;
-    Vector3 thisPos;
+    public Vector3 thisPos;
     GameObject virtualObject;
     float objectHeight;
     Vector3 pivot;
@@ -28,7 +28,7 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     float currentStackHeight;
     public bool isInsideTheWall = true;
     float lineWidth = .05f;
-    float time;
+    public float time;
     float simulationTime;
     Vector3 currentPos, lastPos;
     float delayTimeToSimulation = 0.5f;
@@ -310,7 +310,7 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         this.gameObject.transform.localEulerAngles = settingPivotRotation;
     }
 
-    void SettingVirtualObjectTransform(Vector3 thisPos)
+    public void SettingVirtualObjectTransform(Vector3 thisPos)
     {
         virtualObject.transform.position = new Vector3(thisPos.x, currentStackHeight + objectHeight / 2, thisPos.z);
         virtualObject.transform.GetChild(0).gameObject.transform.localPosition = settingPivotPosition;
@@ -318,7 +318,7 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         simulationTime = 0;
     }
 
-    void Simulation(bool active)
+    public void Simulation(bool active)
     {
         if (active)
         {
