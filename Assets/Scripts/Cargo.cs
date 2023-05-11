@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEditor.PlayerSettings;
 
 public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
@@ -10,7 +11,10 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     RaycastHit hitLayerMask;
     public Vector3 thisPos;
     GameObject virtualObject;
-    float objectHeight;
+    public float objectHeight;
+    public float objectHeightX;
+    public float objectHeightY;
+    public float objectHeightZ;
     Vector3 pivot;
     public GameObject Objectpivot;
     Vector3 settingPivotPosition;
@@ -82,7 +86,11 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         }
         meshCollider = this.GetComponent<MeshCollider>();
         meshCollider.convex = true;
-        objectHeight = meshCollider.bounds.size.y; // extents로 할 경우 x,y,z축과 상관없는 오브젝트의 높이, 하지만 높이가 안맞음
+        objectHeightX = meshCollider.bounds.size.x;
+        objectHeightY = meshCollider.bounds.size.y;
+        objectHeightZ = meshCollider.bounds.size.z; // extents로 할 경우 x,y,z축과 상관없는 오브젝트의 높이, 하지만 높이가 안맞음
+
+        objectHeight = objectHeightY;
 
         // rigidBody 생성
         this.gameObject.AddComponent<Rigidbody>();
@@ -121,7 +129,6 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         {
             isOnVirtualPlane = true;
             Objectpivot.transform.position = new Vector3(hitLayerMask.point.x, Cacher.uldManager.currentULD.virtualPlaneHeight + (objectHeight / 2) - 0.00001f, hitLayerMask.point.z); // 객체의 위치를 RaycastHit의 point값 위치로 이동
-
             DetectStackHeight();
             DrawVirtualObject(isOnVirtualPlane);
             Cacher.uldManager.currentULD.virtualPlaneMeshRenderer.enabled = false;
