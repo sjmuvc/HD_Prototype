@@ -37,22 +37,19 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            tmpVector.y += rotateValue;
-
-            //objectPivot.transform.localEulerAngles = new Vector3(objectPivot.transform.localEulerAngles.x, objectPivot.transform.localEulerAngles.y + rotateValue, objectPivot.transform.localEulerAngles.z);
+            objectPivot.transform.Rotate(0, 90, 0, Space.World);
         }
         else if (Input.GetKeyDown(KeyCode.T))
         {
-            tmpVector.x += rotateValue;
-            //objectPivot.transform.localEulerAngles = new Vector3(objectPivot.transform.localEulerAngles.x + rotateValue, objectPivot.transform.localEulerAngles.y, objectPivot.transform.localEulerAngles.z);
+            objectPivot.transform.Rotate(90, 0, 0, Space.World);            
+            
         }
         else if (Input.GetKeyDown(KeyCode.Y))
         {
-            tmpVector.z += rotateValue;
-            //objectPivot.transform.localEulerAngles = new Vector3(objectPivot.transform.localEulerAngles.x, objectPivot.transform.localEulerAngles.y, objectPivot.transform.localEulerAngles.z + rotateValue);
+            objectPivot.transform.Rotate(0, 0,90, Space.World);
         }
 
-        objectPivot.transform.localEulerAngles = tmpVector;
+        //objectPivot.transform.localEulerAngles = tmpVector;
 
     }
 }
