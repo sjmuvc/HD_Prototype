@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEditor.PlayerSettings;
 
 public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
