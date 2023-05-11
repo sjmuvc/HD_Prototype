@@ -16,7 +16,7 @@ public class CloudPanel : MonoBehaviour
     public TMP_Text priority_txt_2;
 
     public GameObject cloudImage;
-    float cloudHeight = 3.5f;
+    float cloudHeight = 4f;
 
 
     public void ShowData(CargoInfo cargoInfo, bool active)
