@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CloudPanel : MonoBehaviour
 {
@@ -9,10 +10,10 @@ public class CloudPanel : MonoBehaviour
     public float weight;
     public string priority;
 
-    public Text volume_txt;
-    public Text weight_txt;
-    public Text priority_txt_1;
-    public Text priority_txt_2;
+    public TMP_Text volume_txt;
+    public TMP_Text weight_txt;
+    public TMP_Text priority_txt_1;
+    public TMP_Text priority_txt_2;
 
     public GameObject cloudImage;
     float cloudHeight = 3.5f;
