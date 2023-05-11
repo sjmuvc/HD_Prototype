@@ -113,6 +113,7 @@ public class CargoManager : MonoBehaviour
         for(int i = 0; i < uldObjects.Count; i++)
         {
             uldObjects[i].GetComponent<Cargo>().GotoCargoZone();
+            Cacher.cargoManager.cargoZoneObjects.Add(uldObjects[i]);
         }
         uldObjects.Clear();
     }
