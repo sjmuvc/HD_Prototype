@@ -37,19 +37,29 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
+            objectPivot.transform.GetChild(0).GetComponent<Cargo>().objectHeight = objectPivot.transform.GetChild(0).GetComponent<Cargo>().objectHeightY;
             objectPivot.transform.Rotate(0, 90, 0, Space.World);
+            ResetSimulation(objectPivot);
         }
         else if (Input.GetKeyDown(KeyCode.T))
         {
-            objectPivot.transform.Rotate(90, 0, 0, Space.World);            
-            
+            objectPivot.transform.GetChild(0).GetComponent<Cargo>().objectHeight = objectPivot.transform.GetChild(0).GetComponent<Cargo>().objectHeightX;
+            objectPivot.transform.Rotate(90, 0, 0, Space.World);
+            ResetSimulation(objectPivot);
         }
         else if (Input.GetKeyDown(KeyCode.Y))
         {
+            objectPivot.transform.GetChild(0).GetComponent<Cargo>().objectHeight = objectPivot.transform.GetChild(0).GetComponent<Cargo>().objectHeightZ;
             objectPivot.transform.Rotate(0, 0,90, Space.World);
+            ResetSimulation(objectPivot);
         }
+        //objectPivot.transform.localEulerAngles = tmpVector; 
+    }
 
-        //objectPivot.transform.localEulerAngles = tmpVector;
-
+    private void ResetSimulation(GameObject objectPivot)
+    {
+        objectPivot.transform.GetChild(0).GetComponent<Cargo>().Simulation(false);
+        objectPivot.transform.GetChild(0).GetComponent<Cargo>().time = 0;
+        objectPivot.transform.GetChild(0).GetComponent<Cargo>().SettingVirtualObjectTransform(objectPivot.transform.GetChild(0).GetComponent<Cargo>().thisPos);
     }
 }

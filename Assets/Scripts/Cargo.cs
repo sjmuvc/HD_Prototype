@@ -8,9 +8,12 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
 {
     GameManager gameManager;
     RaycastHit hitLayerMask;
-    Vector3 thisPos;
+    public Vector3 thisPos;
     GameObject virtualObject;
-    float objectHeight;
+    public float objectHeight;
+    public float objectHeightX;
+    public float objectHeightY;
+    public float objectHeightZ;
     Vector3 pivot;
     public GameObject Objectpivot;
     Vector3 settingPivotPosition;
@@ -28,7 +31,7 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     float currentStackHeight;
     public bool isInsideTheWall = true;
     float lineWidth = .05f;
-    float time;
+    public float time;
     float simulationTime;
     Vector3 currentPos, lastPos;
     float delayTimeToSimulation = 0.5f;
@@ -82,7 +85,11 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         }
         meshCollider = this.GetComponent<MeshCollider>();
         meshCollider.convex = true;
-        objectHeight = meshCollider.bounds.size.y; // extents로 할 경우 x,y,z축과 상관없는 오브젝트의 높이, 하지만 높이가 안맞음
+        objectHeightX = meshCollider.bounds.size.x;
+        objectHeightY = meshCollider.bounds.size.y;
+        objectHeightZ = meshCollider.bounds.size.z; // extents로 할 경우 x,y,z축과 상관없는 오브젝트의 높이, 하지만 높이가 안맞음
+
+        objectHeight = objectHeightY;
 
         // rigidBody 생성
         this.gameObject.AddComponent<Rigidbody>();
@@ -121,7 +128,6 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         {
             isOnVirtualPlane = true;
             Objectpivot.transform.position = new Vector3(hitLayerMask.point.x, Cacher.uldManager.currentULD.virtualPlaneHeight + (objectHeight / 2) - 0.00001f, hitLayerMask.point.z); // 객체의 위치를 RaycastHit의 point값 위치로 이동
-
             DetectStackHeight();
             DrawVirtualObject(isOnVirtualPlane);
             Cacher.uldManager.currentULD.virtualPlaneMeshRenderer.enabled = false;
@@ -310,7 +316,7 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         this.gameObject.transform.localEulerAngles = settingPivotRotation;
     }
 
-    void SettingVirtualObjectTransform(Vector3 thisPos)
+    public void SettingVirtualObjectTransform(Vector3 thisPos)
     {
         virtualObject.transform.position = new Vector3(thisPos.x, currentStackHeight + objectHeight / 2, thisPos.z);
         virtualObject.transform.GetChild(0).gameObject.transform.localPosition = settingPivotPosition;
@@ -318,7 +324,7 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         simulationTime = 0;
     }
 
-    void Simulation(bool active)
+    public void Simulation(bool active)
     {
         if (active)
         {

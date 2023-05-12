@@ -24,6 +24,8 @@ public class TopPanel : MonoBehaviour
 
     void OnClickButton_Home()
     {
-
+        Cacher.uiManager.GetComponent<BottomPanel>().OnClickButton_SCA();
+        Cacher.uiManager.GetComponent<BottomPanel>().inputField_Quantity.text = zero.ToString();
+        Cacher.uiManager.GetComponent<BottomPanel>().OnClickButton_SpawnCargo();
     }
 }
