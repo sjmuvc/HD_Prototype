@@ -110,9 +110,9 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     {
         Vector3 mousePos = Input.mousePosition;
         Vector3 worldMousePos = Cacher.uiManager.mainCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cameraToObjectDistance)); // 카메라로부터 거리값
-        Objectpivot.transform.position = worldMousePos;
         Cacher.cargoManager.AllFreeze(true);
         Cacher.inputManager.InPutRotate(Objectpivot);
+        SetObjectHeight();
         RayPositioning(worldMousePos);
     }
 
@@ -132,6 +132,7 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         }
         else
         {
+            Objectpivot.transform.position = worldMousePos;
             isOnVirtualPlane = false;
             DrawVirtualObject(isOnVirtualPlane);
             Cacher.uldManager.currentULD.virtualPlaneMeshRenderer.enabled = true;
@@ -334,6 +335,11 @@ public class Cargo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
             virtualObject.transform.GetChild(0).gameObject.GetComponent<Rigidbody>().isKinematic = true;
             isSimulationOn = active;
         }
+    }
+
+    public void SetObjectHeight()
+    {
+
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -520,10 +520,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!1 &154773298
 GameObject:
@@ -670,10 +676,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!1 &205451179
 GameObject:
@@ -1831,10 +1843,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!1 &579225945
 GameObject:
@@ -2309,10 +2327,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!1 &759798703
 GameObject:
@@ -3076,10 +3100,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!1 &1021124419
 GameObject:
@@ -4770,10 +4800,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!1 &1682437684
 GameObject:
@@ -5071,10 +5107,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!1 &1795248201
 GameObject:
@@ -5478,10 +5520,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!1 &1956341443
 GameObject:
@@ -8403,10 +8451,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!4 &6462652744549609706
 Transform:
@@ -8514,10 +8568,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!1 &6685873862172254366
 GameObject:
@@ -8757,10 +8817,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!23 &6972654725549374056
 MeshRenderer:
@@ -8886,10 +8952,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!1 &7309278432625563887
 GameObject:
@@ -9155,7 +9227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8776589313418895459}
   m_Layer: 0
-  m_Name: uploads_files_819853_Warehouse+Interior+9
+  m_Name: Warehouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9302,10 +9374,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!33 &8465366129036157733
 MeshFilter:
@@ -9356,10 +9434,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!1 &8487719093056435692
 GameObject:
@@ -9550,10 +9634,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!33 &8739588007993927407
 MeshFilter:
@@ -9694,10 +9784,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae401baec27d640a4c1bc0bbd4ea67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisPos: {x: 0, y: 0, z: 0}
+  objectHeight: 0
+  objectHeightX: 0
+  objectHeightY: 0
+  objectHeightZ: 0
   Objectpivot: {fileID: 0}
   startPosition: {x: 0, y: 0, z: 0}
   startLocalEulerAngles: {x: 0, y: 0, z: 0}
   isInsideTheWall: 1
+  time: 0
   isPreviousCargo: 0
 --- !u!23 &9028531203315405905
 MeshRenderer:
